@@ -1,0 +1,13 @@
+# Blitz Leihen — robots.txt
+#
+# Site en ligne — indexation autorisée sur les pages publiques.
+# L'espace admin (/espace-admin/, /admin-mobile/) reste exclu de
+# l'indexation (et porte de toute façon sa propre balise noindex sur
+# chaque page, en filet de sécurité supplémentaire).
+
+User-agent: *
+Allow: /
+Disallow: /espace-admin/
+Disallow: /admin-mobile/
+
+Sitemap: https://www.blitzleihen.com/sitemap.xml

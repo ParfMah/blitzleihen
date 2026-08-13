@@ -1,0 +1,170 @@
+
+
+
+.bg-overlay-contrast {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  pointer-events: none;
+}
+
+
+.media-ph {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  text-align: center;
+  padding: var(--space-6);
+  background: linear-gradient(135deg, #16345F 0%, #0B2D59 100%);
+}
+
+.media-ph__icon  { font-size: 2rem; opacity: 0.5; }
+.media-ph__label { font-size: var(--text-sm); font-weight: var(--weight-semi); color: var(--color-accent); }
+.media-ph__desc  { font-size: 0.7rem; color: rgba(255,255,255,0.5); max-width: 320px; line-height: 1.5; }
+.media-ph__code  { font-size: 0.62rem; font-family: var(--font-mono); color: var(--color-accent); background: rgba(255,255,255,0.07); padding: 3px 10px; border-radius: 3px; }
+
+
+@keyframes kbZoomIn {
+  from { transform: scale(1);    }
+  to   { transform: scale(1.14); }
+}
+
+
+.site-footer {
+  position: relative;
+  overflow: hidden;
+}
+
+.site-footer .footer-top,
+.site-footer .footer-bottom,
+.site-footer .footer-divider {
+  position: relative;
+  z-index: 2;
+}
+
+
+.distort-gallery {
+  position: relative;
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  box-shadow: var(--shadow-xl);
+  background: var(--color-primary);
+}
+
+.distort-gallery__slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+}
+
+
+.distort-gallery__slide.is-active {
+  transform: translate(0, 0);
+  z-index: 2;
+}
+
+
+.distort-gallery__slide.enter-from-top    { transform: translateY(-100%); }
+.distort-gallery__slide.enter-from-bottom { transform: translateY(100%); }
+.distort-gallery__slide.enter-from-left   { transform: translateX(-100%); }
+.distort-gallery__slide.enter-from-right  { transform: translateX(100%); }
+
+
+.distort-gallery__slide.is-entering {
+  z-index: 3;
+  transition: transform 950ms cubic-bezier(0.65, 0, 0.35, 1);
+  transform: translate(0, 0);
+}
+
+.distort-gallery__caption {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  z-index: 3;
+  padding: var(--space-6) var(--space-8);
+  background: linear-gradient(to top, rgba(11,45,89,0.88), transparent);
+  color: var(--color-white);
+}
+
+.distort-gallery__caption-eyebrow {
+  display: block;
+  font-size: var(--text-xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: var(--space-1);
+}
+
+.distort-gallery__caption-title {
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+  font-weight: var(--weight-bold);
+}
+
+.distort-gallery__dots {
+  position: absolute;
+  top: var(--space-5);
+  right: var(--space-5);
+  z-index: 3;
+  display: flex;
+  gap: var(--space-2);
+}
+
+.distort-gallery__dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255,255,255,0.4);
+  cursor: pointer;
+  padding: 0;
+  transition: background var(--transition-normal), width var(--transition-normal);
+}
+
+.distort-gallery__dot.active {
+  background: var(--color-accent);
+  width: 22px;
+  border-radius: 4px;
+}
+
+@media (max-width: 767px) {
+  .distort-gallery { aspect-ratio: 4 / 5; }
+  .distort-gallery__caption-title { font-size: var(--text-lg); }
+}
+
+
+.hero-mini--photo::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: var(--hero-photo);
+  background-size: cover;
+  background-position: center;
+  animation: kbZoomIn 26s ease-in-out infinite alternate;
+  z-index: 0;
+}
+
+
+
+
+.about-hero.hero-mini--photo > .container {
+  position: relative;
+  z-index: 2;
+}
+
+
+.site-footer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(rgba(5, 18, 38, 0.82), rgba(5, 18, 38, 0.82)),
+    url('https://res.cloudinary.com/duramdsjz/image/upload/f_auto,q_auto/v1783865280/blitz-leihen-footer-background_ghucl0.webp') center / cover;
+  z-index: 0;
+}

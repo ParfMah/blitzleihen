@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="api-base" content="https://api.blitzleihen.com">
+  <meta name="description" content="Diese Seite wurde nicht gefunden. Kehren Sie zur Startseite von Blitz Leihen zurück oder nutzen Sie unsere Navigation.">
+  <meta name="robots" content="index, follow">
+  <title>Seite nicht gefunden (404) – Blitz Leihen</title>
+  <link rel="canonical" href="https://www.blitzleihen.com/404.html">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/navigation.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/chat-widget.css">
+  <link rel="stylesheet" href="css/bg-effects.css">
+  <link rel="icon" type="image/webp" href="blitz_leihen_logo.webp">
+
+  <style>
+    .error-404 {
+      min-height: calc(100vh - var(--nav-height));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-16) var(--space-5);
+      text-align: center;
+      background:
+        radial-gradient(ellipse 1000px 700px at 50% 0%, rgba(30,111,217,0.10), transparent 60%);
+    }
+
+    .error-404__code {
+      font-family: var(--font-heading);
+      font-size: clamp(5rem, 15vw, 9rem);
+      font-weight: var(--weight-bold);
+      color: var(--color-primary);
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+
+    .error-404__bolt { color: var(--color-lightning); }
+
+    .error-404__title {
+      font-family: var(--font-heading);
+      font-size: var(--text-2xl);
+      font-weight: var(--weight-bold);
+      color: var(--color-primary);
+      margin-top: var(--space-4);
+      margin-bottom: var(--space-3);
+    }
+
+    .error-404__text {
+      font-size: var(--text-base);
+      color: var(--color-text-light);
+      max-width: 480px;
+      margin-inline: auto;
+      margin-bottom: var(--space-8);
+      line-height: var(--leading-normal);
+    }
+
+    .error-404__actions {
+      display: flex;
+      gap: var(--space-4);
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: var(--space-10);
+    }
+
+    .error-404__links {
+      display: flex;
+      gap: var(--space-5);
+      justify-content: center;
+      flex-wrap: wrap;
+      font-size: var(--text-sm);
+    }
+
+    .error-404__links a {
+      color: var(--color-secondary);
+      font-weight: var(--weight-medium);
+      text-decoration: none;
+    }
+
+    .error-404__links a:hover { text-decoration: underline; }
+  </style>
+</head>
+
+<body>
+  <div id="pageLoaderPlaceholder"></div>
+  <div id="siteHeaderPlaceholder"></div>
+
+  <main id="main-content">
+    <div class="error-404">
+      <div>
+        <div class="error-404__code">4<span class="error-404__bolt">⚡</span>4</div>
+        <h1 class="error-404__title">Diese Seite wurde nicht gefunden</h1>
+        <p class="error-404__text">
+          Der Link könnte veraltet sein, oder die Seite wurde verschoben. Kein Problem —
+          hier geht's weiter:
+        </p>
+        <div class="error-404__actions">
+          <a href="index.html" class="btn btn-primary btn-lg">🏠 Zur Startseite</a>
+          <a href="kreditantrag.html" class="btn btn-outline-primary btn-lg">⚡ Kredit beantragen</a>
+        </div>
+        <nav class="error-404__links" aria-label="Weitere Seiten">
+          <a href="kredite.html">Kredite</a>
+          <a href="immobilien.html">Immobilienfinanzierung</a>
+          <a href="simulation.html">Kreditrechner</a>
+          <a href="ratgeber.html">Ratgeber</a>
+          <a href="ueber-uns.html">Über uns</a>
+        </nav>
+      </div>
+    </div>
+  </main>
+
+  <div id="siteFooterPlaceholder"></div>
+
+  <script src="js/template.js"></script>
+  <script src="js/loader.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/bg-effects.js" defer></script>
+  <script src="js/chat-widget.js" defer></script>
+
+</body>
+</html>

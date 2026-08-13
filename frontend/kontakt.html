@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Kontaktieren Sie Blitz Leihen per Telefon, E-Mail oder Formular — unser Team antwortet innerhalb von 24 Stunden. Für einen Kredit: zum Online-Antrag."
+    />
+
+    <meta name="api-base" content="https://api.blitzleihen.com" />
+    <meta name="robots" content="index, follow" />
+    <title>Kontakt – Blitz Leihen</title>
+
+
+    <meta property="og:title" content="Kontakt – Blitz Leihen" />
+    <meta
+      property="og:description"
+      content="Kontaktieren Sie Blitz Leihen. Telefon, E-Mail oder Kontaktformular — unser Team antwortet innerhalb von 24 Stunden."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="de_DE" />
+    <meta property="og:site_name" content="Blitz Leihen" />
+    <meta
+      property="og:image"
+      content="https://www.blitzleihen.com/blitz_leihen_logo.webp"
+    />
+    <meta
+      property="og:url"
+      content="https://www.blitzleihen.com/kontakt.html"
+    />
+
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Kontakt – Blitz Leihen" />
+    <meta
+      name="twitter:description"
+      content="Kontaktieren Sie Blitz Leihen. Telefon, E-Mail oder Kontaktformular — unser Team antwortet innerhalb von 24 Stunden."
+    />
+    <meta
+      name="twitter:image"
+      content="https://www.blitzleihen.com/blitz_leihen_logo.webp"
+    />
+
+
+    <link rel="canonical" href="https://www.blitzleihen.com/kontakt.html" />
+
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Startseite",
+            "item": "https://www.blitzleihen.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Kontakt",
+            "item": "https://www.blitzleihen.com/kontakt.html"
+          }
+        ]
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FinancialService",
+        "name": "Blitz Leihen GmbH",
+        "telephone": "+49-69-12006560",
+        "email": "kontakt@blitzleihen.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Kaiserhofstr. 13",
+          "postalCode": "60313",
+          "addressLocality": "Frankfurt am Main",
+          "addressCountry": "DE"
+        },
+        "openingHours": ["Mo-Fr 08:00-18:00", "Sa 09:00-13:00"]
+      }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/navigation.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/pages.css" />
+    <link rel="stylesheet" href="css/chat-widget.css" />
+    <link rel="stylesheet" href="css/bg-effects.css" />
+    <link rel="icon" type="image/webp" href="blitz_leihen_logo.webp" />
+
+    <style>
+
+      .contact-sidebar {
+        position: sticky;
+        top: calc(var(--nav-height) + var(--space-6));
+      }
+
+      .contact-map-placeholder {
+        border-radius: var(--radius-xl);
+        overflow: hidden;
+        margin-top: var(--space-6);
+      }
+
+      #contactError {
+        display: none;
+      }
+      #contactSuccess {
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="pageLoaderPlaceholder"></div>
+    <div id="siteHeaderPlaceholder"></div>
+
+    <main id="main-content">
+
+      <div
+        class="hero-mini hero-mini--photo"
+        id="kontaktHeroVideo"
+        role="banner"
+        style="
+          --hero-photo: url(&quot;https://res.cloudinary.com/duramdsjz/image/upload/f_auto,q_auto/v1783849048/blitz-leihen-kundenberater-telefon-support_ch556n.webp&quot;);
+        "
+      >
+        <div class="bg-overlay-contrast" aria-hidden="true"></div>
+        <div class="hero-mini__content">
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            <span class="breadcrumb__item"
+              ><a href="index.html">Startseite</a></span
+            >
+            <span class="breadcrumb__separator">›</span>
+            <span class="breadcrumb__item">Kontakt</span>
+          </nav>
+          <h1 class="hero-mini__title">Kontaktieren Sie uns</h1>
+          <p class="hero-mini__subtitle">
+            Wir freuen uns auf Ihre Nachricht — persönlich, schnell und
+            unverbindlich.
+          </p>
+        </div>
+      </div>
+
+
+      <div class="trust-bar">
+        <div class="trust-bar__inner">
+          <div class="trust-item">
+            <span class="trust-item__icon">⚡</span
+            ><span class="trust-item__text">Antwort in 24h</span>
+          </div>
+          <div class="trust-item">
+            <span class="trust-item__icon">🔒</span
+            ><span class="trust-item__text">SSL-verschlüsselt</span>
+          </div>
+          <div class="trust-item">
+            <span class="trust-item__icon">☎</span
+            ><span class="trust-item__text">Persönliche Beratung</span>
+          </div>
+          <div class="trust-item">
+            <span class="trust-item__icon">🆓</span
+            ><span class="trust-item__text">Kostenlos & unverbindlich</span>
+          </div>
+        </div>
+      </div>
+
+
+      <section
+        class="section-py"
+        id="contact-info"
+        aria-labelledby="contact-title"
+      >
+        <div class="container">
+
+          <div
+            class="alert alert-info animate-on-scroll"
+            style="margin-bottom: var(--space-10)"
+          >
+            <span>ℹ</span>
+            <div>
+              Möchten Sie einen <strong>Kredit beantragen</strong>? Nutzen Sie
+              unseren
+              <a
+                href="kreditantrag.html"
+                style="
+                  color: var(--color-primary);
+                  font-weight: var(--weight-semi);
+                "
+                >Online-Kreditantrag</a
+              >
+              — in nur 5 Minuten ausgefüllt. Dieses Formular ist für allgemeine
+              Fragen und Anliegen gedacht.
+            </div>
+          </div>
+
+          <div class="contact-layout">
+
+            <aside class="contact-sidebar animate-on-scroll">
+              <span class="section-eyebrow">Kontakt</span>
+              <h2
+                class="section-title"
+                id="contact-title"
+                style="font-size: clamp(1.5rem, 2.5vw, 2rem)"
+              >
+                Wir sind für Sie da
+              </h2>
+              <div class="divider"></div>
+              <p
+                style="
+                  font-size: var(--text-sm);
+                  color: var(--color-text-light);
+                  line-height: var(--leading-loose);
+                  margin-bottom: var(--space-6);
+                "
+              >
+                Unser Team steht Ihnen montags bis freitags von 08:00 bis 18:00
+                Uhr zur Verfügung. Für dringende Anfragen rufen Sie uns bitte
+                direkt an.
+              </p>
+
+              <div>
+                <div class="contact-info__item">
+                  <div class="contact-info__icon">📞</div>
+                  <div>
+                    <div class="contact-info__label">Telefon</div>
+                    <div
+                      class="contact-info__value"
+                      style="font-family: var(--font-mono)"
+                    >
+                      <a href="tel:+496912006560" style="color: inherit"
+                        >+49 (0) 69 1200 656 0</a
+                      >
+                    </div>
+                    <div
+                      style="
+                        font-size: var(--text-xs);
+                        color: var(--color-text-muted);
+                        margin-top: 2px;
+                      "
+                    >
+                      Kostenlos aus dem deutschen Festnetz
+                    </div>
+                  </div>
+                </div>
+                <div class="contact-info__item">
+                  <div class="contact-info__icon">✉</div>
+                  <div>
+                    <div class="contact-info__label">E-Mail</div>
+                    <div
+                      class="contact-info__value"
+                      style="font-family: var(--font-mono)"
+                    >
+                      <a
+                        href="mailto:kontakt@blitzleihen.com"
+                        style="color: inherit"
+                        >kontakt@blitzleihen.com</a
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div class="contact-info__item">
+                  <div class="contact-info__icon">🕐</div>
+                  <div>
+                    <div class="contact-info__label">Öffnungszeiten</div>
+                    <div class="contact-info__value">
+                      Mo – Fr: 08:00 – 18:00 Uhr
+                    </div>
+                    <div
+                      style="
+                        font-size: var(--text-xs);
+                        color: var(--color-text-muted);
+                        margin-top: 2px;
+                      "
+                    >
+                      Sa: 09:00 – 13:00 Uhr
+                    </div>
+                  </div>
+                </div>
+                <div class="contact-info__item">
+                  <div class="contact-info__icon">📍</div>
+                  <div>
+                    <div class="contact-info__label">Adresse</div>
+                    <div class="contact-info__value">
+                      Blitz Leihen GmbH<br />Kaiserhofstr. 13<br />60313
+                      Frankfurt am Main, Deutschland
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="contact-map-placeholder">
+                <div
+                  class="img-placeholder"
+                  style="height: 200px; border-radius: var(--radius-xl); padding: 0;"
+                >
+
+                  <div class="map-container">
+                    <iframe
+                      src="https://maps.google.com/maps?q=Kaiserhofstr.%2013,%2060313%20Frankfurt%20am%20Main&t=&z=15&ie=UTF8&iwloc=&output=embed&hl=de"
+                      width="100%"
+                      height="350"
+                      style="border: 0"
+                      allowfullscreen=""
+                      loading="lazy"
+                      referrerpolicy="no-referrer-when-downgrade"
+                    >
+                    </iframe>
+                  </div>
+                </div>
+              </div>
+            </aside>
+
+
+            <div class="animate-on-scroll delay-2">
+
+              <div id="contactSuccess" class="loan-form">
+                <div class="success-icon">✓</div>
+                <h2
+                  style="
+                    font-family: var(--font-heading);
+                    font-size: var(--text-2xl);
+                    color: var(--color-primary);
+                    margin-bottom: var(--space-4);
+                  "
+                >
+                  Ihre Nachricht wurde gesendet!
+                </h2>
+                <p
+                  style="
+                    font-size: var(--text-lg);
+                    color: var(--color-text-light);
+                    margin-bottom: var(--space-6);
+                  "
+                >
+                  Vielen Dank für Ihre Nachricht. Unser Team meldet sich
+                  innerhalb von 24 Stunden bei Ihnen. Eine Bestätigung wurde an
+                  Ihre E-Mail-Adresse gesendet.
+                </p>
+                <a href="index.html" class="btn btn-primary"
+                  >Zurück zur Startseite</a
+                >
+              </div>
+
+              <form class="loan-form" id="contactForm" novalidate>
+                <h2
+                  class="loan-form__section-title"
+                  style="margin-bottom: var(--space-6)"
+                >
+                  Schreiben Sie uns
+                </h2>
+
+
+                <div
+                  id="contactError"
+                  class="alert alert-error"
+                  style="margin-bottom: var(--space-6)"
+                >
+                  <span>⚠</span>
+                  <div>
+                    <strong>Fehler beim Senden.</strong><br />
+                    Bitte versuchen Sie es erneut oder rufen Sie uns telefonisch
+                    an.
+                  </div>
+                </div>
+
+                <div class="form-grid form-grid-2">
+                  <div class="form-group">
+                    <label class="form-label" for="contactName"
+                      >Name <span class="required">*</span></label
+                    >
+                    <input
+                      type="text"
+                      id="contactName"
+                      name="name"
+                      class="form-control"
+                      placeholder="Max Mustermann"
+                      required
+                      autocomplete="name"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="contactEmail"
+                      >E-Mail-Adresse <span class="required">*</span></label
+                    >
+                    <input
+                      type="email"
+                      id="contactEmail"
+                      name="email"
+                      class="form-control"
+                      placeholder="max.mustermann@email.de"
+                      required
+                      autocomplete="email"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="contactTelefon"
+                      >Telefonnummer</label
+                    >
+                    <input
+                      type="tel"
+                      id="contactTelefon"
+                      name="telefon"
+                      class="form-control"
+                      placeholder="+49 151 12345678 (Optional)"
+                      autocomplete="tel"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="contactBetreff"
+                      >Betreff</label
+                    >
+                    <input
+                      type="text"
+                      id="contactBetreff"
+                      name="betreff"
+                      class="form-control"
+                      placeholder="Worum geht es?"
+                    />
+                  </div>
+                  <div class="form-group form-col-full">
+                    <label class="form-label" for="contactNachricht"
+                      >Nachricht <span class="required">*</span></label
+                    >
+                    <textarea
+                      id="contactNachricht"
+                      name="nachricht"
+                      class="form-control"
+                      rows="6"
+                      placeholder="Ihre Nachricht an uns..."
+                      required
+                      minlength="10"
+                    ></textarea>
+                  </div>
+                </div>
+
+                <label
+                  class="consent-check"
+                  style="margin: var(--space-2) 0 var(--space-6)"
+                >
+                  <input type="checkbox" name="datenschutz" required />
+                  <span class="consent-check__text">
+                    Ich habe die
+                    <a href="datenschutz.html" target="_blank"
+                      >Datenschutzerklärung</a
+                    >
+                    gelesen und bin mit der Verarbeitung meiner Daten zur
+                    Beantwortung meiner Anfrage einverstanden.
+                    <span class="required">*</span>
+                  </span>
+                </label>
+
+                <button
+                  type="submit"
+                  class="btn btn-accent btn-lg"
+                  id="contactSubmitBtn"
+                >
+                  ✉ Nachricht senden
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div id="siteFooterPlaceholder"></div>
+
+    <script src="js/template.js"></script>
+    <script src="js/loader.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/bg-effects.js" defer></script>
+    <script src="js/chat-widget.js" defer></script>
+    <script src="js/notifications.js"></script>
+    <script src="js/contact-form.js"></script>
+  </body>
+</html>

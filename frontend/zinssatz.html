@@ -1,0 +1,735 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="api-base" content="https://api.blitzleihen.com" />
+    <meta
+      name="description"
+      content="Erfahren Sie, welche Faktoren Ihren Kreditzins bestimmen: Bonität, Einkommen, Schuldenquote, Laufzeit — inklusive Tipps für bessere Konditionen."
+    />
+    <meta
+      name="keywords"
+      content="Zinssatz berechnen, Kreditzins Faktoren, Bonität Kredit, effektiver Jahreszins, Schuldenquote"
+    />
+    <meta name="robots" content="index, follow" />
+    <title>Wie wird Ihr Zinssatz berechnet? – Blitz Leihen</title>
+
+
+    <meta
+      property="og:title"
+      content="Wie wird Ihr Zinssatz berechnet? – Blitz Leihen"
+    />
+    <meta
+      property="og:description"
+      content="Erfahren Sie transparent, welche Faktoren Ihren Kreditzins bei Blitz Leihen bestimmen: Bonität, Einkommen, Schuldenquote, Laufzeit und mehr."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="de_DE" />
+    <meta property="og:site_name" content="Blitz Leihen" />
+    <meta
+      property="og:image"
+      content="https://www.blitzleihen.com/blitz_leihen_logo.webp"
+    />
+    <meta
+      property="og:url"
+      content="https://www.blitzleihen.com/zinssatz.html"
+    />
+
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Wie wird Ihr Zinssatz berechnet? – Blitz Leihen"
+    />
+    <meta
+      name="twitter:description"
+      content="Erfahren Sie transparent, welche Faktoren Ihren Kreditzins bei Blitz Leihen bestimmen: Bonität, Einkommen, Schuldenquote, Laufzeit und mehr."
+    />
+    <meta
+      name="twitter:image"
+      content="https://www.blitzleihen.com/blitz_leihen_logo.webp"
+    />
+
+
+    <link rel="canonical" href="https://www.blitzleihen.com/zinssatz.html" />
+
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Startseite",
+            "item": "https://www.blitzleihen.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Wie wird Ihr Zinssatz berechnet?",
+            "item": "https://www.blitzleihen.com/zinssatz.html"
+          }
+        ]
+      }
+    </script>
+
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Welchen Zinssatz bekomme ich bei Blitz Leihen?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Ihr individueller Zinssatz hängt von mehreren Faktoren ab, insbesondere Ihrer Bonität, Ihrem Einkommen, Ihrer Schuldenquote sowie Kreditbetrag und Laufzeit. Er wird erst nach Prüfung Ihres vollständigen Antrags final festgelegt."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Was ist der Unterschied zwischen Sollzins und effektivem Jahreszins?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Der Sollzinssatz ist der reine Zinssatz für das geliehene Kapital. Der effektive Jahreszins berücksichtigt zusätzlich alle weiteren Kosten und bildet daher die tatsächliche jährliche Gesamtbelastung ab. Vergleichen Sie beim Kreditvergleich immer den effektiven Jahreszins."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Kann sich mein Zinssatz nach Vertragsabschluss noch ändern?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Nein. Bei einem Kredit mit gebundenem Sollzinssatz bleibt Ihr Zinssatz über die gesamte vereinbarte Laufzeit konstant, unabhängig von späteren Marktschwankungen."
+            }
+          }
+        ]
+      }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/navigation.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/pages.css" />
+    <link rel="stylesheet" href="css/chat-widget.css" />
+    <link rel="stylesheet" href="css/bg-effects.css" />
+    <link rel="icon" type="image/webp" href="blitz_leihen_logo.webp" />
+
+    <style>
+
+
+      .factors-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-6);
+        margin-top: var(--space-10);
+      }
+
+      .factor-card {
+        background: var(--color-white);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-xl);
+        padding: var(--space-6);
+        box-shadow: var(--shadow-sm);
+        transition:
+          transform var(--transition-normal),
+          box-shadow var(--transition-normal);
+      }
+
+      .factor-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-md);
+      }
+
+      .factor-card__number {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: var(--radius-full);
+        background: var(--color-primary);
+        color: var(--color-white);
+        font-family: var(--font-heading);
+        font-weight: var(--weight-bold);
+        font-size: var(--text-base);
+        margin-bottom: var(--space-4);
+      }
+
+      .factor-card__icon {
+        font-size: 1.6rem;
+        margin-bottom: var(--space-2);
+        display: block;
+      }
+
+      .factor-card__title {
+        font-family: var(--font-heading);
+        font-size: var(--text-lg);
+        font-weight: var(--weight-bold);
+        color: var(--color-primary);
+        margin-bottom: var(--space-2);
+      }
+
+      .factor-card__text {
+        font-size: var(--text-sm);
+        color: var(--color-text-light);
+        line-height: var(--leading-normal);
+      }
+
+      .example-box {
+        background: linear-gradient(
+          135deg,
+          var(--color-primary) 0%,
+          var(--color-primary-light) 100%
+        );
+        border-radius: var(--radius-xl);
+        padding: var(--space-8);
+        color: var(--color-white);
+        margin-top: var(--space-10);
+      }
+
+      .example-box__label {
+        font-size: var(--text-xs);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--color-accent-light);
+        font-weight: var(--weight-bold);
+        margin-bottom: var(--space-4);
+        display: block;
+      }
+
+      .example-box__grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: var(--space-5);
+        margin-top: var(--space-5);
+      }
+
+      .example-box__item-value {
+        font-family: var(--font-mono);
+        font-size: var(--text-xl);
+        font-weight: var(--weight-bold);
+        color: var(--color-white);
+      }
+
+      .example-box__item-label {
+        font-size: var(--text-xs);
+        color: rgba(255, 255, 255, 0.75);
+        margin-top: 4px;
+      }
+
+      .example-box__disclaimer {
+        font-size: var(--text-xs);
+        color: rgba(255, 255, 255, 0.7);
+        margin-top: var(--space-5);
+        line-height: var(--leading-normal);
+        border-top: 1px solid rgba(255, 255, 255, 0.15);
+        padding-top: var(--space-4);
+      }
+
+      .tips-list {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-4);
+        margin-top: var(--space-8);
+      }
+
+      .tips-list__item {
+        display: flex;
+        align-items: flex-start;
+        gap: var(--space-3);
+        background: var(--color-white);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-lg);
+        padding: var(--space-4) var(--space-5);
+      }
+
+      .tips-list__icon {
+        width: 26px;
+        height: 26px;
+        border-radius: var(--radius-full);
+        background: var(--color-success);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.75rem;
+        font-weight: bold;
+        flex-shrink: 0;
+        margin-top: 2px;
+      }
+
+      .tips-list__text {
+        font-size: var(--text-base);
+        color: var(--color-text-light);
+        line-height: var(--leading-normal);
+      }
+      .tips-list__text strong {
+        color: var(--color-primary);
+        font-weight: var(--weight-semi);
+      }
+
+      .quote-callout {
+        display: flex;
+        align-items: center;
+        gap: var(--space-6);
+        background: var(--color-bg-section);
+        box-shadow: 3px 3px 5px var(--color-primary);
+        border-radius: var(--radius-xl);
+        padding: var(--space-8);
+        margin-top: var(--space-10);
+      }
+
+      .quote-callout__icon {
+        font-size: 3rem;
+        flex-shrink: 0;
+      }
+      .quote-callout__title {
+        font-family: var(--font-heading);
+        font-size: var(--text-xl);
+        font-weight: var(--weight-bold);
+        color: var(--color-primary);
+        margin-bottom: var(--space-2);
+      }
+      .quote-callout__text {
+        font-size: var(--text-sm);
+        color: var(--color-text-light);
+        line-height: var(--leading-normal);
+        margin-bottom: var(--space-4);
+      }
+
+      @media (max-width: 1024px) {
+        .factors-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .example-box__grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 640px) {
+        .factors-grid {
+          grid-template-columns: 1fr;
+        }
+        .example-box__grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .quote-callout {
+          flex-direction: column;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="pageLoaderPlaceholder"></div>
+    <div id="siteHeaderPlaceholder"></div>
+
+    <main id="main-content">
+
+
+      <div
+        class="hero-mini hero-mini--photo"
+        id="zinssatzHeroBg"
+        role="banner"
+        style="
+          --hero-photo: url(&quot;https://res.cloudinary.com/duramdsjz/image/upload/f_auto,q_auto/v1784173524/zinssatz-beratung-hero.webp&quot;);
+        "
+      >
+        <div class="bg-overlay-contrast" aria-hidden="true"></div>
+        <div class="hero-mini__content">
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            <span class="breadcrumb__item"
+              ><a href="index.html">Startseite</a></span
+            >
+            <span class="breadcrumb__separator">›</span>
+            <span class="breadcrumb__item"
+              >Wie wird Ihr Zinssatz berechnet?</span
+            >
+          </nav>
+          <h1 class="hero-mini__title">Wie wird Ihr Zinssatz berechnet?</h1>
+          <p class="hero-mini__subtitle">
+            Volle Transparenz: Diese Faktoren bestimmen Ihre individuellen
+            Kreditkonditionen — ganz ohne versteckte Kriterien.
+          </p>
+        </div>
+      </div>
+
+
+      <section class="section-py">
+        <div class="container">
+          <div
+            style="max-width: 760px; margin-inline: auto; text-align: center"
+          >
+            <span class="section-eyebrow">Transparenz als Prinzip</span>
+            <h2 class="section-title">Kein Zinssatz von der Stange</h2>
+            <p
+              style="
+                font-size: var(--text-base);
+                color: var(--color-text-light);
+                line-height: var(--leading-normal);
+                margin-top: var(--space-4);
+              "
+            >
+              Bei Blitz Leihen gibt es keinen Einheitszins. Ihr persönlicher
+              Zinssatz wird individuell anhand objektiver, nachvollziehbarer
+              Kriterien berechnet — damit Sie faire Konditionen erhalten, die
+              wirklich zu Ihrer Situation passen. Auf dieser Seite erklären wir
+              Ihnen offen, welche Faktoren dabei eine Rolle spielen.
+            </p>
+          </div>
+
+          <div class="example-box animate-on-scroll">
+            <span class="example-box__label"
+              >Repräsentatives Rechenbeispiel</span
+            >
+            <p
+              style="
+                font-size: var(--text-sm);
+                color: rgba(255, 255, 255, 0.9);
+                max-width: 640px;
+              "
+            >
+              So könnte eine Finanzierung bei durchschnittlicher Bonität
+              aussehen:
+            </p>
+            <div class="example-box__grid">
+              <div>
+                <div class="example-box__item-value">10.000 €</div>
+                <div class="example-box__item-label">Nettodarlehensbetrag</div>
+              </div>
+              <div>
+                <div class="example-box__item-value">3,6 %</div>
+                <div class="example-box__item-label">Eff. Jahreszins</div>
+              </div>
+              <div>
+                <div class="example-box__item-value">48 Monate</div>
+                <div class="example-box__item-label">Laufzeit</div>
+              </div>
+              <div>
+                <div class="example-box__item-value">~224 €</div>
+                <div class="example-box__item-label">Monatliche Rate</div>
+              </div>
+            </div>
+            <p class="example-box__disclaimer">
+              Repräsentatives Beispiel: 2/3 der Antragsteller erhalten diesen
+              Zinssatz oder einen günstigeren. Ihr individueller Sollzins- und
+              effektiver Jahreszinssatz hängt von Ihrer persönlichen
+              Bonitätsprüfung ab und kann davon abweichen. Er wird Ihnen erst
+              nach vollständiger Prüfung Ihres Antrags verbindlich mitgeteilt —
+              ganz ohne Kosten oder Verpflichtung.
+            </p>
+          </div>
+        </div>
+      </section>
+
+
+      <section class="section-py" style="background: var(--color-bg-section)">
+        <div class="container">
+          <header
+            class="section-header section-header--center animate-on-scroll"
+          >
+            <span class="section-eyebrow">Die Einflussfaktoren</span>
+            <h2 class="section-title" id="factors-title">
+              6 Faktoren, die Ihren Zinssatz bestimmen
+            </h2>
+            <div class="divider divider-center"></div>
+          </header>
+
+          <div class="factors-grid">
+            <div class="factor-card animate-on-scroll">
+              <span class="factor-card__number">1</span>
+              <span class="factor-card__icon">📊</span>
+              <div class="factor-card__title">Bonität & Schufa-Auskunft</div>
+              <div class="factor-card__text">
+                Ihre Kreditwürdigkeit ist der wichtigste Einzelfaktor. Eine
+                positive Schufa-Auskunft und eine saubere Zahlungshistorie
+                wirken sich direkt günstig auf Ihren Zinssatz aus, da sie das
+                Ausfallrisiko für den Kreditgeber verringern.
+              </div>
+            </div>
+
+            <div class="factor-card animate-on-scroll">
+              <span class="factor-card__number">2</span>
+              <span class="factor-card__icon">💶</span>
+              <div class="factor-card__title">Einkommen & Schuldenquote</div>
+              <div class="factor-card__text">
+                Ein stabiles, ausreichendes Einkommen im Verhältnis zu Ihren
+                bestehenden monatlichen Verbindlichkeiten (Ihre
+                <strong>Schuldenquote</strong>) zeigt, wie komfortabel Sie die
+                neue Kreditrate stemmen können. Eine niedrigere Quote wirkt sich
+                meist positiv aus.
+              </div>
+            </div>
+
+            <div class="factor-card animate-on-scroll">
+              <span class="factor-card__number">3</span>
+              <span class="factor-card__icon">🗓️</span>
+              <div class="factor-card__title">Kreditbetrag & Laufzeit</div>
+              <div class="factor-card__text">
+                Größere Kreditbeträge und längere Laufzeiten bedeuten für den
+                Kreditgeber ein höheres Gesamtrisiko über die Zeit, was sich auf
+                die Konditionen auswirken kann. Kürzere Laufzeiten führen
+                tendenziell zu niedrigeren effektiven Jahreszinsen.
+              </div>
+            </div>
+
+            <div class="factor-card animate-on-scroll">
+              <span class="factor-card__number">4</span>
+              <span class="factor-card__icon">💼</span>
+              <div class="factor-card__title">Beschäftigungsverhältnis</div>
+              <div class="factor-card__text">
+                Ein unbefristetes Anstellungsverhältnis gilt als besonders
+                stabil. Selbstständige, Beamte, Rentner oder befristet
+                Beschäftigte werden individuell bewertet — auch hier gibt es
+                faire Lösungen, ggf. mit angepassten Nachweisen.
+              </div>
+            </div>
+
+            <div class="factor-card animate-on-scroll">
+              <span class="factor-card__number">5</span>
+              <span class="factor-card__icon">🎯</span>
+              <div class="factor-card__title">Verwendungszweck</div>
+              <div class="factor-card__text">
+                Manche Verwendungszwecke (z. B. Umschuldung bestehender teurer
+                Kredite) können sich günstig auswirken, da sie Ihre finanzielle
+                Gesamtsituation nachweislich verbessern.
+              </div>
+            </div>
+
+            <div class="factor-card animate-on-scroll">
+              <span class="factor-card__number">6</span>
+              <span class="factor-card__icon">🏠</span>
+              <div class="factor-card__title">
+                Sicherheiten (bei Immobilienkrediten)
+              </div>
+              <div class="factor-card__text">
+                Bei Immobilienfinanzierungen dient die Immobilie selbst als
+                Sicherheit. Ein niedrigerer Beleihungsauslauf (Verhältnis
+                Kreditsumme zu Immobilienwert) führt in der Regel zu günstigeren
+                Zinssätzen.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <section class="section-py">
+        <div class="container">
+          <header
+            class="section-header section-header--center animate-on-scroll"
+          >
+            <span class="section-eyebrow">Ihre Stellschrauben</span>
+            <h2 class="section-title">So verbessern Sie Ihre Konditionen</h2>
+            <div class="divider divider-center"></div>
+          </header>
+
+          <div class="tips-list" style="max-width: 760px; margin-inline: auto">
+            <div class="tips-list__item">
+              <span class="tips-list__icon">✓</span>
+              <span class="tips-list__text"
+                ><strong>Bestehende Kredite reduzieren:</strong> Je niedriger
+                Ihre monatlichen Verbindlichkeiten im Verhältnis zu Ihrem
+                Einkommen, desto besser Ihre Schuldenquote.</span
+              >
+            </div>
+            <div class="tips-list__item">
+              <span class="tips-list__icon">✓</span>
+              <span class="tips-list__text"
+                ><strong>Kürzere Laufzeit wählen:</strong> Eine kürzere Laufzeit
+                bedeutet zwar höhere monatliche Raten, senkt aber meist den
+                effektiven Jahreszins und die Gesamtkosten.</span
+              >
+            </div>
+            <div class="tips-list__item">
+              <span class="tips-list__icon">✓</span>
+              <span class="tips-list__text"
+                ><strong>Vollständige & korrekte Angaben:</strong> Ein
+                vollständiger Antrag mit korrekten Nachweisen wird schneller und
+                oft mit besseren Konditionen bearbeitet.</span
+              >
+            </div>
+            <div class="tips-list__item">
+              <span class="tips-list__icon">✓</span>
+              <span class="tips-list__text"
+                ><strong>Realistischen Kreditbetrag beantragen:</strong>
+                Beantragen Sie nur den tatsächlich benötigten Betrag — das wirkt
+                sich positiv auf Ihre Schuldenquote aus.</span
+              >
+            </div>
+            <div class="tips-list__item">
+              <span class="tips-list__icon">✓</span>
+              <span class="tips-list__text"
+                ><strong>Schufa-Eintrag prüfen:</strong> Fehlerhafte Einträge in
+                Ihrer Schufa-Auskunft können sich unnötig negativ auswirken —
+                eine jährliche kostenlose Selbstauskunft schafft Klarheit.</span
+              >
+            </div>
+          </div>
+
+          <div class="quote-callout animate-on-scroll">
+            <span class="quote-callout__icon">🧮</span>
+            <div>
+              <div class="quote-callout__title">
+                Kennen Sie schon Ihre Schuldenquote?
+              </div>
+              <div class="quote-callout__text">
+                In unserem Kreditantragsformular berechnen wir Ihre geschätzte
+                Schuldenquote automatisch und in Echtzeit, sobald Sie Einkommen,
+                bestehende Verbindlichkeiten, Kreditbetrag und Laufzeit angeben
+                — inklusive verständlicher Einordnung (gut / erhöht / hoch).
+              </div>
+              <a href="kreditantrag.html" class="btn btn-primary"
+                >Jetzt Antrag starten</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <section class="section-py faq-section" aria-labelledby="faq-title">
+        <div class="container">
+          <header
+            class="section-header section-header--center animate-on-scroll"
+          >
+            <span class="section-eyebrow">Häufige Fragen</span>
+            <h2 class="section-title" id="faq-title">
+              Antworten auf Ihre Fragen
+            </h2>
+            <div class="divider divider-center"></div>
+          </header>
+
+          <div style="max-width: 760px; margin-inline: auto">
+            <div class="accordion-group">
+              <div class="accordion-item">
+                <button class="accordion-trigger" aria-expanded="false">
+                  Welchen Zinssatz bekomme ich bei Blitz Leihen?
+                  <span class="accordion-icon">+</span>
+                </button>
+                <div class="accordion-content">
+                  <div class="accordion-body">
+                    Ihr individueller Zinssatz hängt von mehreren Faktoren ab,
+                    insbesondere Ihrer Bonität, Ihrem Einkommen, Ihrer
+                    Schuldenquote sowie Kreditbetrag und Laufzeit. Er wird erst
+                    nach Prüfung Ihres vollständigen Antrags final festgelegt —
+                    die Anfrage selbst ist für Sie kostenlos und unverbindlich.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <button class="accordion-trigger" aria-expanded="false">
+                  Was ist der Unterschied zwischen Sollzins und effektivem
+                  Jahreszins?
+                  <span class="accordion-icon">+</span>
+                </button>
+                <div class="accordion-content">
+                  <div class="accordion-body">
+                    Der Sollzinssatz ist der reine Zinssatz für das geliehene
+                    Kapital. Der effektive Jahreszins berücksichtigt zusätzlich
+                    alle weiteren Kosten (z. B. Bearbeitungsgebühren) und bildet
+                    daher die tatsächliche jährliche Gesamtbelastung ab.
+                    Vergleichen Sie beim Kreditvergleich daher immer den
+                    effektiven Jahreszins, nicht nur den Sollzins.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <button class="accordion-trigger" aria-expanded="false">
+                  Kann sich mein Zinssatz nach Vertragsabschluss noch ändern?
+                  <span class="accordion-icon">+</span>
+                </button>
+                <div class="accordion-content">
+                  <div class="accordion-body">
+                    Nein. Bei einem Kredit mit gebundenem Sollzinssatz bleibt
+                    Ihr Zinssatz über die gesamte vereinbarte Laufzeit konstant,
+                    unabhängig von späteren Marktschwankungen. Sie haben also
+                    volle Planungssicherheit für Ihre monatlichen Raten.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <button class="accordion-trigger" aria-expanded="false">
+                  Kostet die Zinsberechnung oder Antragsstellung etwas?
+                  <span class="accordion-icon">+</span>
+                </button>
+                <div class="accordion-content">
+                  <div class="accordion-body">
+                    Nein. Die Nutzung unseres Kreditrechners sowie die
+                    Antragsstellung sind für Sie zu 100 % kostenlos und
+                    unverbindlich. Sie erfahren Ihre individuellen Konditionen,
+                    bevor Sie sich zu irgendetwas verpflichten.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <button class="accordion-trigger" aria-expanded="false">
+                  Verschlechtert eine Anfrage bei Blitz Leihen meine Schufa?
+                  <span class="accordion-icon">+</span>
+                </button>
+                <div class="accordion-content">
+                  <div class="accordion-body">
+                    Eine unverbindliche Konditionsanfrage wird in der Regel als
+                    sogenannte "Konditionsanfrage" geführt, die nicht negativ
+                    auf Ihre Schufa-Bonität wirkt — im Gegensatz zu einer echten
+                    "Kreditanfrage" bei mehreren Anbietern gleichzeitig. Im
+                    Zweifel informieren wir Sie persönlich, bevor eine Prüfung
+                    stattfindet.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <section class="cta-section" aria-labelledby="cta-zins-title">
+        <div class="cta-section__inner animate-on-scroll">
+          <span class="cta-section__eyebrow"
+            >Bereit, Ihre Konditionen zu erfahren?</span
+          >
+          <h2 class="cta-section__title" id="cta-zins-title">
+            Berechnen Sie jetzt Ihre Rate
+          </h2>
+          <p class="cta-section__text">
+            Nutzen Sie unseren kostenlosen Kreditrechner oder stellen Sie direkt
+            Ihren unverbindlichen Antrag.
+          </p>
+          <div class="cta-section__actions">
+            <a href="simulation.html" class="btn btn-accent btn-lg"
+              >🧮 Kreditrechner nutzen</a
+            >
+            <a href="kreditantrag.html" class="btn btn-outline-white btn-lg"
+              >⚡ Kredit beantragen</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div id="siteFooterPlaceholder"></div>
+
+    <script src="js/template.js"></script>
+    <script src="js/loader.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/bg-effects.js" defer></script>
+    <script src="js/chat-widget.js" defer></script>
+  </body>
+</html>

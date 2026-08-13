@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="api-base" content="https://api.blitzleihen.com">
+  <meta name="description" content="Kostenloser Kreditrechner von Blitz Leihen: Berechnen Sie in Echtzeit Ihre monatliche Rate für Beträge von 1.000 € bis 100.000 € — unverbindlich und transparent.">
+  <meta name="keywords" content="Kreditrechner, monatliche Rate berechnen, Kredit Simulation, Ratenrechner, Kreditkosten berechnen">
+  <meta name="robots" content="index, follow">
+  <title>Kreditrechner – Monatliche Rate berechnen | Blitz Leihen</title>
+
+
+  <meta property="og:title" content="Kreditrechner – Monatliche Rate berechnen | Blitz Leihen">
+  <meta property="og:description" content="Kostenloser Kreditrechner: Berechnen Sie in Echtzeit Ihre monatliche Rate für Beträge von 1.000 € bis 100.000 € — unverbindlich und transparent.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:site_name" content="Blitz Leihen">
+  <meta property="og:image" content="https://www.blitzleihen.com/blitz_leihen_logo.webp">
+  <meta property="og:url" content="https://www.blitzleihen.com/simulation.html">
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Kreditrechner – Monatliche Rate berechnen | Blitz Leihen">
+  <meta name="twitter:description" content="Kostenloser Kreditrechner: Berechnen Sie in Echtzeit Ihre monatliche Rate — unverbindlich und transparent.">
+  <meta name="twitter:image" content="https://www.blitzleihen.com/blitz_leihen_logo.webp">
+
+
+  <link rel="canonical" href="https://www.blitzleihen.com/simulation.html">
+
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Startseite", "item": "https://www.blitzleihen.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Kreditrechner", "item": "https://www.blitzleihen.com/simulation.html" }
+    ]
+  }
+  </script>
+
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Blitz Leihen Kreditrechner",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Any",
+    "url": "https://www.blitzleihen.com/simulation.html",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" }
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/navigation.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/chat-widget.css">
+  <link rel="stylesheet" href="css/bg-effects.css">
+  <link rel="icon" type="image/webp" href="blitz_leihen_logo.webp">
+
+  <style>
+
+
+    .calculator-card {
+      background: var(--color-white);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-lg);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      overflow: hidden;
+      margin-top: calc(-1 * var(--space-16));
+      position: relative;
+      z-index: 5;
+    }
+
+
+    .calculator-inputs {
+      padding: var(--space-8) var(--space-8);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-8);
+    }
+
+    .calc-field__header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: var(--space-3);
+    }
+
+    .calc-field__label {
+      font-size: var(--text-sm);
+      font-weight: var(--weight-semi);
+      color: var(--color-text-light);
+    }
+
+    .calc-field__value {
+      font-family: var(--font-mono);
+      font-size: var(--text-2xl);
+      font-weight: var(--weight-bold);
+      color: var(--color-primary);
+    }
+
+    .calc-field input[type="range"] {
+      width: 100%;
+      height: 6px;
+      border-radius: var(--radius-full);
+      background: var(--color-border);
+      outline: none;
+      -webkit-appearance: none;
+      appearance: none;
+      accent-color: var(--color-secondary);
+    }
+
+    .calc-field input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--color-secondary);
+      border: 3px solid var(--color-white);
+      box-shadow: var(--shadow-md);
+      cursor: pointer;
+    }
+
+    .calc-field input[type="range"]::-moz-range-thumb {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--color-secondary);
+      border: 3px solid var(--color-white);
+      box-shadow: var(--shadow-md);
+      cursor: pointer;
+      border: none;
+    }
+
+    .calc-field__minmax {
+      display: flex;
+      justify-content: space-between;
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+      margin-top: var(--space-2);
+    }
+
+    .calc-field__quick {
+      display: flex;
+      gap: var(--space-2);
+      margin-top: var(--space-3);
+      flex-wrap: wrap;
+    }
+
+    .calc-field__quick-btn {
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      border: 1.5px solid var(--color-border);
+      background: var(--color-white);
+      font-size: var(--text-xs);
+      font-weight: var(--weight-medium);
+      color: var(--color-text-light);
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+
+    .calc-field__quick-btn:hover,
+    .calc-field__quick-btn.active {
+      border-color: var(--color-secondary);
+      background: var(--color-secondary);
+      color: var(--color-white);
+    }
+
+
+    .calculator-results {
+      background: linear-gradient(160deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+      color: var(--color-white);
+      padding: var(--space-8);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .result-main {
+      text-align: center;
+      padding-bottom: var(--space-6);
+      margin-bottom: var(--space-6);
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+    }
+
+    .result-main__label {
+      font-size: var(--text-sm);
+      color: rgba(255,255,255,0.8);
+      margin-bottom: var(--space-2);
+    }
+
+    .result-main__value {
+      font-family: var(--font-mono);
+      font-size: 3rem;
+      font-weight: var(--weight-bold);
+      color: var(--color-white);
+      line-height: 1;
+    }
+
+    .result-main__value span { font-size: 1.4rem; opacity: 0.7; }
+
+    .result-secondary {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-5);
+      margin-bottom: var(--space-6);
+    }
+
+    .result-secondary__item-value {
+      font-family: var(--font-mono);
+      font-size: var(--text-xl);
+      font-weight: var(--weight-bold);
+    }
+
+    .result-secondary__item-label {
+      font-size: var(--text-xs);
+      color: rgba(255,255,255,0.75);
+      margin-top: 2px;
+    }
+
+    .calculator-results .btn { width: 100%; justify-content: center; }
+
+    .calc-disclaimer {
+      font-size: var(--text-xs);
+      color: rgba(255,255,255,0.65);
+      line-height: var(--leading-normal);
+      margin-top: var(--space-4);
+      text-align: center;
+    }
+
+
+    .examples-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: var(--space-8);
+      background: var(--color-white);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .examples-table th, .examples-table td {
+      padding: var(--space-4) var(--space-5);
+      text-align: left;
+      font-size: var(--text-sm);
+    }
+
+    .examples-table th {
+      background: var(--color-primary);
+      color: var(--color-white);
+      font-weight: var(--weight-semi);
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .examples-table tbody tr { border-bottom: 1px solid var(--color-border); }
+    .examples-table tbody tr:last-child { border-bottom: none; }
+    .examples-table tbody tr:nth-child(even) { background: var(--color-bg-section); }
+    .examples-table td:first-child, .examples-table th:first-child { font-family: var(--font-mono); font-weight: var(--weight-semi); color: var(--color-primary); }
+
+    @media (max-width: 1024px) {
+      .calculator-card { grid-template-columns: 1fr; margin-top: calc(-1 * var(--space-10)); }
+      .calculator-results { order: -1; }
+    }
+
+    @media (max-width: 640px) {
+      .calculator-inputs, .calculator-results { padding: var(--space-6) var(--space-5); }
+      .result-main__value { font-size: 2.2rem; }
+      .examples-table { font-size: var(--text-xs); }
+      .examples-table th, .examples-table td { padding: var(--space-3); }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="pageLoaderPlaceholder"></div>
+  <div id="siteHeaderPlaceholder"></div>
+
+  <main id="main-content">
+
+
+
+    <div class="hero-mini hero-mini--photo" id="simulationHeroBg" role="banner" style="min-height:260px; --hero-photo:url('https://res.cloudinary.com/duramdsjz/image/upload/f_auto,q_auto/v1784173520/kreditrechner-finanzplanung-hero.webp');">
+      <div class="bg-overlay-contrast" aria-hidden="true"></div>
+      <div class="hero-mini__content">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <span class="breadcrumb__item"><a href="index.html">Startseite</a></span>
+          <span class="breadcrumb__separator">›</span>
+          <span class="breadcrumb__item">Kreditrechner</span>
+        </nav>
+        <h1 class="hero-mini__title">Kreditrechner</h1>
+        <p class="hero-mini__subtitle">Berechnen Sie Ihre monatliche Rate in Echtzeit — kostenlos, sofort und unverbindlich.</p>
+      </div>
+    </div>
+
+
+    <section class="section-py" style="padding-top:0;">
+      <div class="container">
+
+        <div class="calculator-card animate-on-scroll">
+
+
+          <div class="calculator-inputs">
+
+            <div class="calc-field">
+              <div class="calc-field__header">
+                <span class="calc-field__label">Kreditbetrag</span>
+                <span class="calc-field__value" id="betragDisplay">10.000 €</span>
+              </div>
+              <input type="range" id="betragRange" min="1000" max="100000" step="500" value="10000" aria-label="Kreditbetrag in Euro">
+              <div class="calc-field__minmax"><span>1.000 €</span><span>100.000 €</span></div>
+              <div class="calc-field__quick">
+                <button type="button" class="calc-field__quick-btn" data-betrag="2000">2.000 €</button>
+                <button type="button" class="calc-field__quick-btn" data-betrag="5000">5.000 €</button>
+                <button type="button" class="calc-field__quick-btn active" data-betrag="10000">10.000 €</button>
+                <button type="button" class="calc-field__quick-btn" data-betrag="25000">25.000 €</button>
+                <button type="button" class="calc-field__quick-btn" data-betrag="50000">50.000 €</button>
+              </div>
+            </div>
+
+            <div class="calc-field">
+              <div class="calc-field__header">
+                <span class="calc-field__label">Laufzeit</span>
+                <span class="calc-field__value" id="laufzeitDisplay">48 Monate</span>
+              </div>
+              <input type="range" id="laufzeitRange" min="6" max="360" step="6" value="48" aria-label="Laufzeit in Monaten">
+              <div class="calc-field__minmax"><span>6 Monate</span><span>360 Monate</span></div>
+              <div class="calc-field__quick">
+                <button type="button" class="calc-field__quick-btn" data-laufzeit="12">12 Mo.</button>
+                <button type="button" class="calc-field__quick-btn" data-laufzeit="24">24 Mo.</button>
+                <button type="button" class="calc-field__quick-btn active" data-laufzeit="48">48 Mo.</button>
+                <button type="button" class="calc-field__quick-btn" data-laufzeit="84">84 Mo.</button>
+                <button type="button" class="calc-field__quick-btn" data-laufzeit="120">120 Mo.</button>
+              </div>
+            </div>
+
+          </div>
+
+
+          <div class="calculator-results">
+            <div class="result-main">
+              <div class="result-main__label">Geschätzte monatliche Rate</div>
+              <div class="result-main__value"><span>≈</span> <span id="rateValue">224</span> <span>€</span></div>
+            </div>
+            <div class="result-secondary">
+              <div>
+                <div class="result-secondary__item-value" id="gesamtValue">10.752 €</div>
+                <div class="result-secondary__item-label">Gesamtrückzahlung</div>
+              </div>
+              <div>
+                <div class="result-secondary__item-value" id="kostenValue">752 €</div>
+                <div class="result-secondary__item-label">Kreditkosten (Zinsen)</div>
+              </div>
+            </div>
+            <a href="kreditantrag.html" id="applyBtn" class="btn btn-accent btn-lg">⚡ Jetzt unverbindlich beantragen</a>
+            <p class="calc-disclaimer">
+              Berechnung auf Basis eines repräsentativen Beispielzinses von 3,6 % eff. p.a. (2/3 der Antragsteller erhalten diesen Zins oder einen günstigeren), ohne
+              Bearbeitungsgebühren. Unverbindliches Rechenbeispiel — Ihr individueller Zinssatz hängt
+              von Ihrer Bonität ab und wird erst nach Prüfung Ihres Antrags festgelegt.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <section class="section-py" style="background:var(--color-bg-section);">
+      <div class="container">
+        <header class="section-header section-header--center animate-on-scroll">
+          <span class="section-eyebrow">So funktioniert's</span>
+          <h2 class="section-title">Wie wird die Rate berechnet?</h2>
+          <div class="divider divider-center"></div>
+        </header>
+
+        <div style="max-width:760px; margin-inline:auto; text-align:center;">
+          <p style="font-size:var(--text-base); color:var(--color-text-light); line-height:var(--leading-normal);">
+            Die monatliche Rate ergibt sich aus dem Kreditbetrag, der Laufzeit und einem Zinssatz.
+            Für dieses Rechenbeispiel verwenden wir einen repräsentativen Beispielzins von <strong>3,6&nbsp;%
+            effektivem Jahreszins</strong> (2/3 der Antragsteller erhalten diesen Zins oder einen günstigeren) — der branchenübliche Ansatz, um eine realistische Orientierung
+            zu geben, bevor Ihre individuelle Bonität geprüft wurde. Möchten Sie genau verstehen, welche
+            Faktoren Ihren <em>tatsächlichen</em>, persönlichen Zinssatz bestimmen?
+          </p>
+          <a href="zinssatz.html" class="btn btn-outline-primary" style="margin-top:var(--space-6);">📖 Wie wird Ihr Zinssatz berechnet?</a>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section-py">
+      <div class="container">
+        <header class="section-header section-header--center animate-on-scroll">
+          <span class="section-eyebrow">Zur Orientierung</span>
+          <h2 class="section-title">Beispielrechnungen</h2>
+          <div class="divider divider-center"></div>
+        </header>
+
+        <div style="max-width:820px; margin-inline:auto; overflow-x:auto;">
+          <table class="examples-table">
+            <thead>
+              <tr>
+                <th>Kreditbetrag</th>
+                <th>Laufzeit</th>
+                <th>Mtl. Rate (ca.)</th>
+                <th>Gesamtkosten (ca.)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>2.000 €</td><td>12 Monate</td><td>170 €</td><td>40 €</td></tr>
+              <tr><td>10.000 €</td><td>48 Monate</td><td>224 €</td><td>752 €</td></tr>
+              <tr><td>30.000 €</td><td>84 Monate</td><td>405 €</td><td>4.020 €</td></tr>
+              <tr><td>80.000 €</td><td>180 Monate</td><td>576 €</td><td>23.680 €</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="text-align:center; font-size:var(--text-xs); color:var(--color-text-muted); margin-top:var(--space-4);">
+          Alle Werte basieren auf dem repräsentativen Beispielzins von 3,6 % eff. p.a. und dienen nur der Orientierung.
+        </p>
+      </div>
+    </section>
+
+
+    <section class="section-py faq-section" aria-labelledby="faq-title">
+      <div class="container">
+        <header class="section-header section-header--center animate-on-scroll">
+          <span class="section-eyebrow">Häufige Fragen</span>
+          <h2 class="section-title" id="faq-title">Fragen zum Kreditrechner</h2>
+          <div class="divider divider-center"></div>
+        </header>
+
+        <div style="max-width:760px; margin-inline:auto;">
+          <div class="accordion-group">
+
+            <div class="accordion-item">
+              <button class="accordion-trigger" aria-expanded="false">
+                Ist die berechnete Rate verbindlich?
+                <span class="accordion-icon">+</span>
+              </button>
+              <div class="accordion-content">
+                <div class="accordion-body">
+                  Nein. Der Kreditrechner liefert ein unverbindliches Rechenbeispiel auf Basis eines
+                  repräsentativen Zinssatzes. Ihr tatsächlicher, individueller Zinssatz wird erst nach
+                  Prüfung Ihres Antrags festgelegt und kann je nach Bonität höher oder niedriger ausfallen.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-trigger" aria-expanded="false">
+                Entstehen mir durch die Nutzung des Rechners Kosten?
+                <span class="accordion-icon">+</span>
+              </button>
+              <div class="accordion-content">
+                <div class="accordion-body">
+                  Nein, die Nutzung des Kreditrechners ist komplett kostenlos und unverbindlich. Es
+                  entstehen Ihnen keinerlei Kosten oder Verpflichtungen — auch nicht, wenn Sie anschließend
+                  einen Antrag stellen.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-trigger" aria-expanded="false">
+                Warum weicht mein späteres Angebot vom Rechenbeispiel ab?
+                <span class="accordion-icon">+</span>
+              </button>
+              <div class="accordion-content">
+                <div class="accordion-body">
+                  Der Kreditrechner nutzt einen einheitlichen Beispielzins zur Orientierung. Ihr tatsächliches
+                  Angebot berücksichtigt individuelle Faktoren wie Bonität, Einkommen, Schuldenquote und
+                  Verwendungszweck — mehr dazu auf unserer Seite
+                  <a href="zinssatz.html" style="color:var(--color-secondary); font-weight:var(--weight-semi);">"Wie wird Ihr Zinssatz berechnet?"</a>.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-trigger" aria-expanded="false">
+                Kann ich eine Sondertilgung vornehmen?
+                <span class="accordion-icon">+</span>
+              </button>
+              <div class="accordion-content">
+                <div class="accordion-body">
+                  Die genauen Konditionen zu Sondertilgungen hängen vom jeweiligen Kreditprodukt ab und
+                  werden Ihnen transparent im individuellen Angebot mitgeteilt. Sprechen Sie uns bei
+                  Interesse gerne direkt darauf an.
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="cta-section" aria-labelledby="cta-sim-title">
+      <div class="cta-section__inner animate-on-scroll">
+        <span class="cta-section__eyebrow">Ihr Ergebnis überzeugt Sie?</span>
+        <h2 class="cta-section__title" id="cta-sim-title">Stellen Sie jetzt Ihren Antrag</h2>
+        <p class="cta-section__text">Kostenlos, unverbindlich und in nur 5 Minuten. Ihr persönliches Angebot folgt nach Prüfung.</p>
+        <div class="cta-section__actions">
+          <a href="kreditantrag.html" class="btn btn-accent btn-lg">⚡ Kredit beantragen</a>
+          <a href="zinssatz.html" class="btn btn-outline-white btn-lg">📖 Zinsfaktoren verstehen</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="siteFooterPlaceholder"></div>
+
+  <script src="js/template.js"></script>
+  <script src="js/loader.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/bg-effects.js" defer></script>
+  <script src="js/chat-widget.js" defer></script>
+  <script src="js/kreditrechner.js"></script>
+
+</body>
+</html>

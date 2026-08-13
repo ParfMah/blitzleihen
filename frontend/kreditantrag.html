@@ -1,0 +1,1489 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Kreditantrag bei Blitz Leihen stellen. Online-Formular in 5 Minuten ausfüllen. Kostenlose Beratung. Antwort innerhalb von 24 Stunden."
+    />
+
+    <meta name="api-base" content="https://api.blitzleihen.com" />
+    <meta name="robots" content="index, follow" />
+    <title>Kreditantrag stellen – Online in 5 Minuten – Blitz Leihen</title>
+
+
+    <meta
+      property="og:title"
+      content="Kreditantrag stellen – Online in 5 Minuten – Blitz Leihen"
+    />
+    <meta
+      property="og:description"
+      content="Kreditantrag bei Blitz Leihen stellen. Online-Formular in 5 Minuten ausfüllen. Kostenlose Beratung. Antwort innerhalb von 24 Stunden."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="de_DE" />
+    <meta property="og:site_name" content="Blitz Leihen" />
+    <meta
+      property="og:image"
+      content="https://www.blitzleihen.com/blitz_leihen_logo.webp"
+    />
+    <meta
+      property="og:url"
+      content="https://www.blitzleihen.com/kreditantrag.html"
+    />
+
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Kreditantrag stellen – Online in 5 Minuten – Blitz Leihen"
+    />
+    <meta
+      name="twitter:description"
+      content="Kreditantrag bei Blitz Leihen stellen. Online-Formular in 5 Minuten ausfüllen. Kostenlose Beratung. Antwort innerhalb von 24 Stunden."
+    />
+    <meta
+      name="twitter:image"
+      content="https://www.blitzleihen.com/blitz_leihen_logo.webp"
+    />
+
+
+    <link
+      rel="canonical"
+      href="https://www.blitzleihen.com/kreditantrag.html"
+    />
+
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Startseite",
+            "item": "https://www.blitzleihen.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Kreditantrag stellen",
+            "item": "https://www.blitzleihen.com/kreditantrag.html"
+          }
+        ]
+      }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/navigation.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/pages.css" />
+    <link rel="stylesheet" href="css/chat-widget.css" />
+    <link rel="stylesheet" href="css/bg-effects.css" />
+    <link rel="icon" type="image/webp" href="blitz_leihen_logo.webp" />
+
+    <style>
+
+
+
+      .form-step-panel {
+        display: none;
+      }
+      .form-step-panel[data-step="1"] {
+        display: block;
+      }
+
+
+      .step-indicators {
+        display: flex;
+        align-items: center;
+        margin-bottom: var(--space-10);
+        gap: 0;
+      }
+
+      .step-indicator {
+        display: flex;
+        align-items: center;
+        flex: 1;
+        gap: var(--space-3);
+      }
+
+      .step-indicator__circle {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: 2px solid var(--color-border);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: var(--text-sm);
+        font-weight: var(--weight-bold);
+        color: var(--color-text-muted);
+        background: var(--color-white);
+        flex-shrink: 0;
+        transition: all var(--transition-normal);
+      }
+
+      .step-indicator.active .step-indicator__circle {
+        background: var(--color-primary);
+        border-color: var(--color-primary);
+        color: var(--color-white);
+        box-shadow: 0 4px 12px rgba(11, 45, 89, 0.3);
+      }
+
+      .step-indicator.completed .step-indicator__circle {
+        background: var(--color-success);
+        border-color: var(--color-success);
+        color: var(--color-white);
+      }
+
+      .step-indicator__label {
+        font-size: var(--text-xs);
+        color: var(--color-text-muted);
+        font-weight: var(--weight-medium);
+        white-space: nowrap;
+      }
+
+      .step-indicator.active .step-indicator__label,
+      .step-indicator.completed .step-indicator__label {
+        color: var(--color-primary);
+      }
+
+      .step-connector {
+        flex: 1;
+        height: 2px;
+        background: var(--color-border);
+        margin-inline: var(--space-2);
+        transition: background var(--transition-normal);
+      }
+
+      .step-connector.done {
+        background: var(--color-success);
+      }
+
+
+      .summary-box {
+        background: var(--color-bg-section);
+        border-radius: var(--radius-xl);
+        padding: var(--space-6);
+        border: 1px solid var(--color-border);
+        margin-bottom: var(--space-6);
+      }
+
+
+      .consent-check {
+        display: flex;
+        align-items: flex-start;
+        gap: var(--space-3);
+        cursor: pointer;
+      }
+
+      .consent-check input[type="checkbox"] {
+        width: 18px;
+        height: 18px;
+        flex-shrink: 0;
+        margin-top: 2px;
+        accent-color: var(--color-primary);
+        cursor: pointer;
+      }
+
+      .consent-check__text {
+        font-size: var(--text-sm);
+        color: var(--color-text-light);
+        line-height: var(--leading-normal);
+      }
+
+      .consent-check__text a {
+        color: var(--color-primary-light);
+        text-decoration: underline;
+      }
+
+
+      #formSuccess {
+        display: none;
+        text-align: center;
+        padding: var(--space-12);
+      }
+
+      .success-icon {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background: rgba(26, 122, 74, 0.1);
+        color: var(--color-success);
+        font-size: 2.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto var(--space-6);
+      }
+
+
+      #formError {
+        display: none;
+      }
+
+
+      .form-control.valid {
+        border-color: var(--color-success);
+      }
+
+
+      .sms-option {
+        background: var(--color-bg-section);
+        border: 2px solid var(--color-border);
+        border-radius: var(--radius-xl);
+        padding: var(--space-6);
+        transition: border-color var(--transition-normal);
+      }
+
+      .sms-option:has(input[value="ja"].selected-radio) {
+        border-color: var(--color-primary);
+        background: rgba(11, 45, 89, 0.04);
+      }
+
+      @media (max-width: 768px) {
+        .step-indicator__label {
+          display: none;
+        }
+      }
+
+
+      .geburtsdatum-grid {
+        display: grid;
+        grid-template-columns: 1fr 1.6fr 1fr;
+        gap: var(--space-3);
+      }
+
+      @media (max-width: 480px) {
+        .geburtsdatum-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+
+      .schuldenquote-card {
+        border: 2px solid var(--color-border);
+        border-radius: var(--radius-xl);
+        padding: var(--space-5) var(--space-6);
+        background: var(--color-bg-section);
+        transition:
+          border-color var(--transition-normal),
+          background var(--transition-normal);
+      }
+
+      .schuldenquote-card__label {
+        font-size: var(--text-sm);
+        font-weight: var(--weight-semi);
+        color: var(--color-text-light);
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        margin-bottom: var(--space-2);
+      }
+
+      .schuldenquote-card__value {
+        font-family: var(--font-heading);
+        font-size: 2rem;
+        font-weight: var(--weight-bold);
+        color: var(--color-primary);
+        line-height: 1.1;
+      }
+
+      .schuldenquote-card__hint {
+        font-size: var(--text-sm);
+        color: var(--color-text-light);
+        margin-top: var(--space-2);
+        line-height: var(--leading-normal);
+      }
+
+      .schuldenquote-card__disclaimer {
+        font-size: var(--text-xs);
+        color: var(--color-text-muted);
+        margin-top: var(--space-3);
+        font-style: italic;
+      }
+
+      .schuldenquote-card.tier-good {
+        border-color: var(--color-success);
+        background: rgba(26, 122, 74, 0.06);
+      }
+      .schuldenquote-card.tier-good .schuldenquote-card__value {
+        color: var(--color-success);
+      }
+
+      .schuldenquote-card.tier-medium {
+        border-color: #c8831a;
+        background: rgba(200, 131, 26, 0.07);
+      }
+      .schuldenquote-card.tier-medium .schuldenquote-card__value {
+        color: #c8831a;
+      }
+
+      .schuldenquote-card.tier-high {
+        border-color: var(--color-error);
+        background: rgba(176, 42, 42, 0.06);
+      }
+      .schuldenquote-card.tier-high .schuldenquote-card__value {
+        color: var(--color-error);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="pageLoaderPlaceholder"></div>
+    <div id="siteHeaderPlaceholder"></div>
+
+    <main id="main-content">
+
+
+      <div
+        class="hero-mini hero-mini--photo"
+        id="kreditantragHeroBg"
+        role="banner"
+        style="
+          --hero-photo: url(&quot;https://res.cloudinary.com/duramdsjz/image/upload/f_auto,q_auto/v1784173520/kreditantrag-online-unterschrift-hero.webp&quot;);
+        "
+      >
+        <div class="bg-overlay-contrast" aria-hidden="true"></div>
+        <div class="hero-mini__content">
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            <span class="breadcrumb__item"
+              ><a href="index.html">Startseite</a></span
+            >
+            <span class="breadcrumb__separator">›</span>
+            <span class="breadcrumb__item">Kreditantrag stellen</span>
+          </nav>
+          <h1 class="hero-mini__title">Kreditantrag stellen</h1>
+          <p class="hero-mini__subtitle">
+            Stellen Sie Ihren Antrag in 5 Minuten — kostenlos, unverbindlich,
+            sicher.
+          </p>
+        </div>
+      </div>
+
+
+      <div class="trust-bar">
+        <div class="trust-bar__inner">
+          <div class="trust-item">
+            <span class="trust-item__icon">⚡</span
+            ><span class="trust-item__text">Antwort in 24h</span>
+          </div>
+          <div class="trust-item">
+            <span class="trust-item__icon">🔒</span
+            ><span class="trust-item__text">SSL-verschlüsselt</span>
+          </div>
+          <div class="trust-item">
+            <span class="trust-item__icon">📋</span
+            ><span class="trust-item__text">5 Minuten Antrag</span>
+          </div>
+          <div class="trust-item">
+            <span class="trust-item__icon">🆓</span
+            ><span class="trust-item__text">Kostenlos & unverbindlich</span>
+          </div>
+        </div>
+      </div>
+
+
+      <section
+        class="section-py"
+        id="kreditantrag-form"
+        aria-labelledby="kreditantrag-title"
+      >
+        <div class="container">
+          <div style="max-width: 820px; margin-inline: auto">
+            <header
+              class="section-header section-header--center animate-on-scroll"
+              style="margin-bottom: var(--space-8)"
+            >
+              <span class="section-eyebrow">Kreditantrag</span>
+              <h2
+                class="section-title"
+                id="kreditantrag-title"
+                style="font-size: clamp(1.5rem, 2.5vw, 2rem)"
+              >
+                Ihr Antrag in 3 einfachen Schritten
+              </h2>
+              <div class="divider divider-center"></div>
+              <p class="text-body-lg">
+                Persönliche Fragen zu Ihrem Antrag? Rufen Sie uns kostenlos an
+                unter
+                <strong
+                  style="
+                    color: var(--color-primary);
+                    font-family: var(--font-mono);
+                  "
+                  >+49 (0) 69 1200 656 0</strong
+                >
+                oder besuchen Sie unsere
+                <a
+                  href="kontakt.html"
+                  style="
+                    color: var(--color-secondary);
+                    font-weight: var(--weight-semi);
+                  "
+                  >Kontaktseite</a
+                >.
+              </p>
+            </header>
+
+
+            <div class="animate-on-scroll delay-2">
+
+              <div id="formSuccess" class="loan-form">
+                <div class="success-icon">✓</div>
+                <h2
+                  style="
+                    font-family: var(--font-heading);
+                    font-size: var(--text-3xl);
+                    color: var(--color-primary);
+                    margin-bottom: var(--space-4);
+                  "
+                >
+                  Ihr Antrag wurde erfolgreich eingereicht!
+                </h2>
+                <p
+                  style="
+                    font-size: var(--text-lg);
+                    color: var(--color-text-light);
+                    margin-bottom: var(--space-4);
+                  "
+                >
+                  Vielen Dank für Ihre Anfrage. Unser Team wird Ihren Antrag
+                  innerhalb von 24 Stunden prüfen und sich bei Ihnen melden.
+                </p>
+                <div
+                  style="
+                    background: var(--color-bg-section);
+                    border-radius: var(--radius-md);
+                    padding: var(--space-4);
+                    margin-bottom: var(--space-6);
+                    display: inline-block;
+                  "
+                >
+                  <span
+                    style="
+                      font-size: var(--text-sm);
+                      color: var(--color-text-muted);
+                    "
+                    >Ihre Referenznummer:</span
+                  >
+                  <strong
+                    class="ref-number"
+                    style="
+                      color: var(--color-primary);
+                      font-family: var(--font-mono);
+                      font-size: var(--text-lg);
+                      display: block;
+                    "
+                    >BL-2025-XXXXXX</strong
+                  >
+                </div>
+                <p
+                  style="
+                    font-size: var(--text-sm);
+                    color: var(--color-text-muted);
+                    margin-bottom: var(--space-8);
+                  "
+                >
+                  Eine Bestätigung wurde an Ihre E-Mail-Adresse gesendet. Bitte
+                  überprüfen Sie auch Ihren Spam-Ordner.
+                </p>
+                <a href="index.html" class="btn btn-primary"
+                  >Zurück zur Startseite</a
+                >
+              </div>
+
+
+              <div
+                id="formError"
+                class="alert alert-error"
+                style="margin-bottom: var(--space-4)"
+              >
+                <span>⚠</span>
+                <div>
+                  <strong>Fehler beim Senden.</strong><br />
+                  Bitte versuchen Sie es erneut oder kontaktieren Sie uns
+                  telefonisch.
+                </div>
+              </div>
+
+
+              <form class="loan-form" id="loanApplicationForm" novalidate>
+
+                <div
+                  class="step-indicators"
+                  role="tablist"
+                  aria-label="Formularschritte"
+                >
+                  <div
+                    class="step-indicator active form-step"
+                    data-step="1"
+                    role="tab"
+                  >
+                    <div class="step-indicator__circle">1</div>
+                    <span class="step-indicator__label">Persönliche Daten</span>
+                  </div>
+                  <div class="step-connector" id="connector-1-2"></div>
+                  <div
+                    class="step-indicator form-step"
+                    data-step="2"
+                    role="tab"
+                  >
+                    <div class="step-indicator__circle">2</div>
+                    <span class="step-indicator__label">Kreditangaben</span>
+                  </div>
+                  <div class="step-connector" id="connector-2-3"></div>
+                  <div
+                    class="step-indicator form-step"
+                    data-step="3"
+                    role="tab"
+                  >
+                    <div class="step-indicator__circle">3</div>
+                    <span class="step-indicator__label">Bestätigung</span>
+                  </div>
+                </div>
+
+
+                <div class="form-step-panel" data-step="1">
+                  <div class="loan-form__section">
+                    <h3 class="loan-form__section-title">
+                      <span class="step-badge">1</span>
+                      Persönliche Informationen
+                    </h3>
+
+                    <div class="form-grid form-grid-2">
+
+                      <div class="form-group">
+                        <label class="form-label" for="vorname"
+                          >Vorname <span class="required">*</span></label
+                        >
+                        <input
+                          type="text"
+                          id="vorname"
+                          name="vorname"
+                          class="form-control"
+                          placeholder="Max"
+                          maxlength="50"
+                          required
+                          autocomplete="given-name"
+                        />
+                        <span class="form-error" style="display: none"></span>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="form-label" for="nachname"
+                          >Nachname <span class="required">*</span></label
+                        >
+                        <input
+                          type="text"
+                          id="nachname"
+                          name="nachname"
+                          class="form-control"
+                          placeholder="Mustermann"
+                          maxlength="50"
+                          required
+                          autocomplete="family-name"
+                        />
+                        <span class="form-error" style="display: none"></span>
+                      </div>
+
+                      <div
+                        class="form-group form-col-full"
+                        id="geburtsdatumGroup"
+                      >
+                        <label class="form-label"
+                          >Geburtsdatum <span class="required">*</span></label
+                        >
+                        <div class="geburtsdatum-grid">
+                          <select
+                            id="geburtsdatumTag"
+                            class="form-control"
+                            aria-label="Geburtstag (Tag)"
+                          >
+                            <option value="">Tag</option>
+                          </select>
+                          <select
+                            id="geburtsdatumMonat"
+                            class="form-control"
+                            aria-label="Geburtsmonat"
+                          >
+                            <option value="">Monat</option>
+                            <option value="01">Januar</option>
+                            <option value="02">Februar</option>
+                            <option value="03">März</option>
+                            <option value="04">April</option>
+                            <option value="05">Mai</option>
+                            <option value="06">Juni</option>
+                            <option value="07">Juli</option>
+                            <option value="08">August</option>
+                            <option value="09">September</option>
+                            <option value="10">Oktober</option>
+                            <option value="11">November</option>
+                            <option value="12">Dezember</option>
+                          </select>
+                          <select
+                            id="geburtsdatumJahr"
+                            class="form-control"
+                            aria-label="Geburtsjahr"
+                          >
+                            <option value="">Jahr</option>
+                          </select>
+                        </div>
+                        <input
+                          type="hidden"
+                          id="geburtsdatum"
+                          name="geburtsdatum"
+                          required
+                        />
+                        <span
+                          class="form-error"
+                          id="geburtsdatumError"
+                          style="display: none"
+                        ></span>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="form-label" for="staatsangehoerigkeit"
+                          >Staatsangehörigkeit
+                          <span class="required">*</span></label
+                        >
+                        <select
+                          id="staatsangehoerigkeit"
+                          name="staatsangehoerigkeit"
+                          class="form-control"
+                          required
+                        >
+                          <option value="">Bitte wählen</option>
+                          <option value="deutsch">Deutsch</option>
+                          <option value="andere">
+                            Andere (EU-Bürger mit Deutschlandbezug)
+                          </option>
+                        </select>
+                        <span class="form-error" style="display: none"></span>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="form-label" for="email"
+                          >E-Mail-Adresse <span class="required">*</span></label
+                        >
+                        <input
+                          type="email"
+                          id="email"
+                          name="email"
+                          class="form-control"
+                          placeholder="max.mustermann@email.de"
+                          required
+                          autocomplete="email"
+                        />
+                        <span class="form-error" style="display: none"></span>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="form-label" for="telefon"
+                          >Telefonnummer <span class="required">*</span></label
+                        >
+                        <input
+                          type="tel"
+                          id="telefon"
+                          name="telefon"
+                          class="form-control"
+                          placeholder="+49 151 12345678"
+                          required
+                          autocomplete="tel"
+                        />
+                        <span class="form-error" style="display: none"></span>
+                      </div>
+
+                      <div class="form-group form-col-full">
+                        <label class="form-label" for="adresse"
+                          >Straße und Hausnummer
+                          <span class="required">*</span></label
+                        >
+                        <input
+                          type="text"
+                          id="adresse"
+                          name="adresse"
+                          class="form-control"
+                          placeholder="Musterstraße 12"
+                          maxlength="200"
+                          required
+                          autocomplete="street-address"
+                        />
+                        <span class="form-error" style="display: none"></span>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="form-label" for="ort"
+                          >PLZ und Ort <span class="required">*</span></label
+                        >
+                        <input
+                          type="text"
+                          id="ort"
+                          name="ort"
+                          class="form-control"
+                          placeholder="60313 Frankfurt am Main"
+                          maxlength="100"
+                          required
+                        />
+                        <span class="form-error" style="display: none"></span>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="form-label" for="land"
+                          >Wohnsitzland <span class="required">*</span></label
+                        >
+                        <select
+                          id="land"
+                          name="land"
+                          class="form-control"
+                          required
+                        >
+                          <option value="">Bitte wählen</option>
+                          <optgroup label="In Deutschland">
+                            <option value="Deutschland">Deutschland</option>
+                          </optgroup>
+                          <optgroup
+                            label="Im EU-Ausland (deutsche Staatsangehörige)"
+                          >
+                            <option value="Österreich">Österreich</option>
+                            <option value="Schweiz">Schweiz</option>
+                            <option value="Frankreich">Frankreich</option>
+                            <option value="Belgien">Belgien</option>
+                            <option value="Niederlande">Niederlande</option>
+                            <option value="Luxemburg">Luxemburg</option>
+                            <option value="Italien">Italien</option>
+                            <option value="Spanien">Spanien</option>
+                            <option value="Portugal">Portugal</option>
+                            <option value="Polen">Polen</option>
+                            <option value="Tschechien">Tschechien</option>
+                            <option value="Schweden">Schweden</option>
+                            <option value="Dänemark">Dänemark</option>
+                            <option value="Anderes EU-Land">
+                              Anderes EU-Land
+                            </option>
+                          </optgroup>
+                        </select>
+                        <span class="form-error" style="display: none"></span>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="form-label" for="beschaeftigung"
+                          >Beschäftigungsstatus
+                          <span class="required">*</span></label
+                        >
+                        <select
+                          id="beschaeftigung"
+                          name="beschaeftigung"
+                          class="form-control"
+                          required
+                        >
+                          <option value="">Bitte wählen</option>
+                          <option value="Angestellt (unbefristet)">
+                            Angestellt (unbefristet)
+                          </option>
+                          <option value="Angestellt (befristet)">
+                            Angestellt (befristet)
+                          </option>
+                          <option value="Selbstständig">
+                            Selbstständig / Freiberufler
+                          </option>
+                          <option value="Beamter">Beamter</option>
+                          <option value="Rentner">Rentner / Pensionär</option>
+                          <option value="Student">Student</option>
+                          <option value="Arbeitssuchend">Arbeitssuchend</option>
+                          <option value="Sonstiges">Sonstiges</option>
+                        </select>
+                        <span class="form-error" style="display: none"></span>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="form-label" for="einkommen"
+                          >Monatliches Nettoeinkommen (€)
+                          <span class="required">*</span></label
+                        >
+                        <input
+                          type="number"
+                          id="einkommen"
+                          name="einkommen"
+                          class="form-control"
+                          placeholder="z.B. 3500"
+                          min="0"
+                          max="1000000"
+                          required
+                        />
+                        <span class="form-error" style="display: none"></span>
+                      </div>
+
+                      <div class="form-group">
+                        <label
+                          class="form-label"
+                          for="bestehendeVerbindlichkeiten"
+                          >Bestehende monatliche Verbindlichkeiten (€)</label
+                        >
+                        <input
+                          type="number"
+                          id="bestehendeVerbindlichkeiten"
+                          name="bestehendeVerbindlichkeiten"
+                          class="form-control"
+                          placeholder="z.B. 450 (0 falls keine)"
+                          min="0"
+                        />
+                        <span class="form-error" style="display: none"></span>
+                        <small
+                          style="
+                            display: block;
+                            margin-top: var(--space-1);
+                            font-size: var(--text-xs);
+                            color: var(--color-text-muted);
+                          "
+                        >
+                          Bestehende Kreditraten, Leasingraten,
+                          Unterhaltszahlungen usw. — 0 eingeben, falls keine.
+                        </small>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div style="text-align: right">
+                    <button
+                      type="button"
+                      class="btn btn-primary btn-lg btn-next-step"
+                      data-step="1"
+                    >
+                      Weiter: Kreditangaben →
+                    </button>
+                  </div>
+                </div>
+
+
+                <div class="form-step-panel" data-step="2">
+                  <div class="loan-form__section">
+                    <h3 class="loan-form__section-title">
+                      <span class="step-badge">2</span>
+                      Kreditangaben
+                    </h3>
+
+                    <div class="form-grid form-grid-2">
+
+                      <div class="form-group form-col-full">
+                        <label class="form-label"
+                          >Art des Kredits
+                          <span class="required">*</span></label
+                        >
+                        <div class="choice-grid-3">
+                          <label
+                            class="form-radio-option"
+                            style="
+                              flex-direction: column;
+                              align-items: center;
+                              text-align: center;
+                              padding: var(--space-4);
+                            "
+                          >
+                            <input
+                              type="radio"
+                              name="kreditart"
+                              value="Privatkredit"
+                              required
+                            />
+                            <span
+                              style="
+                                font-size: 1.8rem;
+                                margin-bottom: var(--space-2);
+                              "
+                              >💶</span
+                            >
+                            <span>Privatkredit</span>
+                          </label>
+                          <label
+                            class="form-radio-option"
+                            style="
+                              flex-direction: column;
+                              align-items: center;
+                              text-align: center;
+                              padding: var(--space-4);
+                            "
+                          >
+                            <input
+                              type="radio"
+                              name="kreditart"
+                              value="Immobilienkredit"
+                            />
+                            <span
+                              style="
+                                font-size: 1.8rem;
+                                margin-bottom: var(--space-2);
+                              "
+                              >🏠</span
+                            >
+                            <span>Immobilienkredit</span>
+                          </label>
+                          <label
+                            class="form-radio-option"
+                            style="
+                              flex-direction: column;
+                              align-items: center;
+                              text-align: center;
+                              padding: var(--space-4);
+                            "
+                          >
+                            <input
+                              type="radio"
+                              name="kreditart"
+                              value="Autofinanzierung"
+                            />
+                            <span
+                              style="
+                                font-size: 1.8rem;
+                                margin-bottom: var(--space-2);
+                              "
+                              >🚗</span
+                            >
+                            <span>Autofinanzierung</span>
+                          </label>
+                          <label
+                            class="form-radio-option"
+                            style="
+                              flex-direction: column;
+                              align-items: center;
+                              text-align: center;
+                              padding: var(--space-4);
+                            "
+                          >
+                            <input
+                              type="radio"
+                              name="kreditart"
+                              value="Renovierungskredit"
+                            />
+                            <span
+                              style="
+                                font-size: 1.8rem;
+                                margin-bottom: var(--space-2);
+                              "
+                              >🔨</span
+                            >
+                            <span>Renovierungskredit</span>
+                          </label>
+                          <label
+                            class="form-radio-option"
+                            style="
+                              flex-direction: column;
+                              align-items: center;
+                              text-align: center;
+                              padding: var(--space-4);
+                            "
+                          >
+                            <input
+                              type="radio"
+                              name="kreditart"
+                              value="Hypothekenkredit"
+                            />
+                            <span
+                              style="
+                                font-size: 1.8rem;
+                                margin-bottom: var(--space-2);
+                              "
+                              >🏦</span
+                            >
+                            <span>Hypothekenkredit</span>
+                          </label>
+                          <label
+                            class="form-radio-option"
+                            style="
+                              flex-direction: column;
+                              align-items: center;
+                              text-align: center;
+                              padding: var(--space-4);
+                            "
+                          >
+                            <input
+                              type="radio"
+                              name="kreditart"
+                              value="Umschuldung"
+                            />
+                            <span
+                              style="
+                                font-size: 1.8rem;
+                                margin-bottom: var(--space-2);
+                              "
+                              >🔄</span
+                            >
+                            <span>Umschuldung</span>
+                          </label>
+                        </div>
+                        <span class="form-error" style="display: none"></span>
+                      </div>
+
+
+                      <div class="form-group">
+                        <label class="form-label" for="kreditbetrag"
+                          >Gewünschter Kreditbetrag (€)
+                          <span class="required">*</span></label
+                        >
+                        <input
+                          type="number"
+                          id="kreditbetrag"
+                          name="kreditbetrag"
+                          class="form-control"
+                          placeholder="z.B. 20000"
+                          min="1000"
+                          max="2000000"
+                          required
+                        />
+                        <span class="form-error" style="display: none"></span>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="form-label" for="laufzeit"
+                          >Gewünschte Laufzeit (Monate)
+                          <span class="required">*</span></label
+                        >
+                        <select
+                          id="laufzeit"
+                          name="laufzeit"
+                          class="form-control"
+                          required
+                        >
+                          <option value="">Bitte wählen</option>
+                          <option value="6">6 Monate</option>
+                          <option value="12">12 Monate (1 Jahr)</option>
+                          <option value="24">24 Monate (2 Jahre)</option>
+                          <option value="36">36 Monate (3 Jahre)</option>
+                          <option value="48">48 Monate (4 Jahre)</option>
+                          <option value="60">60 Monate (5 Jahre)</option>
+                          <option value="72">72 Monate (6 Jahre)</option>
+                          <option value="84">84 Monate (7 Jahre)</option>
+                          <option value="96">96 Monate (8 Jahre)</option>
+                          <option value="120">120 Monate (10 Jahre)</option>
+                          <option value="180">180 Monate (15 Jahre)</option>
+                          <option value="240">240 Monate (20 Jahre)</option>
+                          <option value="300">300 Monate (25 Jahre)</option>
+                          <option value="360">360 Monate (30 Jahre)</option>
+                        </select>
+                        <span class="form-error" style="display: none"></span>
+                      </div>
+
+
+                      <div
+                        class="form-group form-col-full"
+                        id="schuldenquoteBox"
+                        style="display: none"
+                      >
+                        <div class="schuldenquote-card" id="schuldenquoteCard">
+                          <div class="schuldenquote-card__label">
+                            Geschätzte Schuldenquote
+                          </div>
+                          <div
+                            class="schuldenquote-card__value"
+                            id="schuldenquoteValue"
+                          >
+                            —
+                          </div>
+                          <div
+                            class="schuldenquote-card__hint"
+                            id="schuldenquoteHint"
+                          ></div>
+                          <div class="schuldenquote-card__disclaimer">
+                            Unverbindliche Schätzung auf Basis Ihrer Angaben
+                            (ohne Zinsen). Ersetzt keine offizielle
+                            Bonitätsprüfung.
+                            <a
+                              href="zinssatz.html"
+                              style="
+                                color: var(--color-secondary);
+                                font-weight: var(--weight-semi);
+                              "
+                              target="_blank"
+                              rel="noopener"
+                              >Wie wird Ihr Zinssatz berechnet?</a
+                            >
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="form-group form-col-full">
+                        <label class="form-label" for="verwendungszweck"
+                          >Verwendungszweck
+                          <span class="required">*</span></label
+                        >
+                        <textarea
+                          id="verwendungszweck"
+                          name="verwendungszweck"
+                          class="form-control"
+                          rows="3"
+                          maxlength="300"
+                          placeholder="Bitte beschreiben Sie kurz, wofür Sie den Kredit verwenden möchten (max. 300 Zeichen)..."
+                          required
+                        ></textarea>
+                        <span class="form-error" style="display: none"></span>
+                      </div>
+
+
+                      <div class="form-group form-col-full">
+                        <div class="sms-option">
+                          <p
+                            style="
+                              font-size: var(--text-base);
+                              font-weight: var(--weight-medium);
+                              color: var(--color-primary);
+                              margin-bottom: var(--space-4);
+                            "
+                          >
+                            📱 Möchten Sie Ihre Telefonnummer verifizieren, um
+                            SMS-Benachrichtigungen zu Ihrem Antrag zu erhalten?
+                          </p>
+                          <p
+                            style="
+                              font-size: var(--text-sm);
+                              color: var(--color-text-light);
+                              margin-bottom: var(--space-4);
+                            "
+                          >
+                            Mit der SMS-Benachrichtigung werden Sie informiert,
+                            wenn neue Nachrichten oder Updates zu Ihrem Antrag
+                            vorliegen.
+                          </p>
+                          <div style="display: flex; gap: var(--space-4)">
+                            <label
+                              class="form-radio-option"
+                              style="flex: 1; justify-content: center"
+                            >
+                              <input
+                                type="radio"
+                                name="sms_verification"
+                                value="ja"
+                              />
+                              <span
+                                >✓ Ja, ich möchte SMS-Benachrichtigungen
+                                erhalten</span
+                              >
+                            </label>
+                            <label
+                              class="form-radio-option"
+                              style="flex: 1; justify-content: center"
+                            >
+                              <input
+                                type="radio"
+                                name="sms_verification"
+                                value="nein"
+                              />
+                              <span>✗ Nein, danke</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div
+                    style="
+                      display: flex;
+                      justify-content: space-between;
+                      align-items: center;
+                    "
+                  >
+                    <button
+                      type="button"
+                      class="btn btn-outline-primary btn-prev-step"
+                      data-step="2"
+                    >
+                      ← Zurück
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-primary btn-lg btn-next-step"
+                      data-step="2"
+                    >
+                      Weiter: Überprüfen →
+                    </button>
+                  </div>
+                </div>
+
+
+                <div class="form-step-panel" data-step="3">
+                  <div class="loan-form__section">
+                    <h3 class="loan-form__section-title">
+                      <span class="step-badge">3</span>
+                      Überprüfen & Bestätigen
+                    </h3>
+
+                    <p
+                      style="
+                        font-size: var(--text-sm);
+                        color: var(--color-text-light);
+                        margin-bottom: var(--space-5);
+                      "
+                    >
+                      Bitte überprüfen Sie Ihre Angaben sorgfältig, bevor Sie
+                      den Antrag absenden.
+                    </p>
+
+
+                    <div class="summary-box" id="formSummary">
+                      <p
+                        style="
+                          color: var(--color-text-muted);
+                          font-size: var(--text-sm);
+                        "
+                      >
+                        Zusammenfassung wird geladen…
+                      </p>
+                    </div>
+
+
+                    <div
+                      style="
+                        display: flex;
+                        flex-direction: column;
+                        gap: var(--space-4);
+                        margin-bottom: var(--space-6);
+                      "
+                    >
+                      <label class="consent-check">
+                        <input type="checkbox" name="datenschutz" required />
+                        <span class="consent-check__text">
+                          Ich habe die
+                          <a href="datenschutz.html" target="_blank"
+                            >Datenschutzerklärung</a
+                          >
+                          gelesen und bin mit der Verarbeitung meiner Daten
+                          einverstanden. <span class="required">*</span>
+                        </span>
+                      </label>
+                      <label class="consent-check">
+                        <input type="checkbox" name="agb" required />
+                        <span class="consent-check__text">
+                          Ich habe die
+                          <a href="agb.html" target="_blank"
+                            >Allgemeinen Geschäftsbedingungen</a
+                          >
+                          gelesen und akzeptiere diese.
+                          <span class="required">*</span>
+                        </span>
+                      </label>
+                      <label class="consent-check">
+                        <input
+                          type="checkbox"
+                          name="schufa_zustimmung"
+                          required
+                        />
+                        <span class="consent-check__text">
+                          Ich stimme der Einholung einer SCHUFA-Auskunft zu
+                          Bonitätsprüfungszwecken zu.
+                          <span class="required">*</span>
+                        </span>
+                      </label>
+                    </div>
+
+
+                    <div
+                      class="alert alert-info"
+                      style="margin-bottom: var(--space-6)"
+                    >
+                      <span>ℹ</span>
+                      <div style="font-size: var(--text-xs)">
+                        Dieser Antrag ist
+                        <strong>kostenlos und unverbindlich</strong>. Sie gehen
+                        durch das Absenden keine Verpflichtung ein. Unser
+                        Berater wird sich innerhalb von 24 Stunden bei Ihnen
+                        melden.
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div
+                    style="
+                      display: flex;
+                      justify-content: space-between;
+                      align-items: center;
+                      flex-wrap: wrap;
+                      gap: var(--space-4);
+                    "
+                  >
+                    <button
+                      type="button"
+                      class="btn btn-outline-primary btn-prev-step"
+                      data-step="3"
+                    >
+                      ← Zurück
+                    </button>
+                    <button
+                      type="submit"
+                      class="btn btn-accent btn-lg"
+                      id="submitBtn"
+                    >
+                      ⚡ Antrag jetzt absenden
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+
+      <section class="section-py" style="background: var(--color-bg-section); padding-block:var(--space-16);">
+        <div class="container">
+          <div class="split-grid" style="gap: var(--space-12)">
+            <img
+              src="https://res.cloudinary.com/duramdsjz/image/upload/f_auto,q_auto/v1784414072/blitz-leihen-kreditantrag-gesendet.webp"
+              alt="Kreditantrag gesendet"
+              width="1672"
+              height="941"
+              loading="lazy"
+              class="animate-on-scroll"
+              style="
+                width: 100%;
+                max-width: 100%;
+                height: auto;
+                object-fit: cover;
+                border-radius: var(--radius-2xl);
+                display: block;
+              "
+            />
+            <div class="animate-on-scroll delay-2">
+              <span class="section-eyebrow">Unser Prozess</span>
+              <h2
+                class="section-title"
+                style="font-size: clamp(1.5rem, 2.5vw, 2rem)"
+              >
+                In wenigen Schritten zu Ihrem Wunschkredit
+              </h2>
+              <div class="divider"></div>
+              <p class="text-body-lg">
+                Einreichen, prüfen, auszahlen – so einfach war die
+                Kreditbeantragung noch nie. Unser digitaler Prozess spart Ihnen
+                wertvolle Zeit.
+              </p>
+              <ul class="check-list" style="margin-top: var(--space-4)">
+                <li class="check-list__item">
+                  <span class="check-list__icon">✓</span>
+                  <span class="check-list__text"
+                    >Komplett digitaler Antrag ohne Papierkram</span
+                  >
+                </li>
+                <li class="check-list__item">
+                  <span class="check-list__icon">✓</span>
+                  <span class="check-list__text"
+                    >Schnelle Online-Zustimmung in Echtzeit</span
+                  >
+                </li>
+                <li class="check-list__item">
+                  <span class="check-list__icon">✓</span>
+                  <span class="check-list__text"
+                    >Sichere Datenübermittlung nach höchsten Standards</span
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <section class="section-py" style="background: var(--color-bg-section); padding-block:var(--space-5);">
+        <div class="container">
+          <div class="split-grid" style="gap: var(--space-12)">
+            <img
+              src="https://res.cloudinary.com/duramdsjz/image/upload/f_auto,q_auto/v1783849048/blitz-leihen-kundenberater-telefon-support_ch556n.webp"
+              alt="Blitz Leihen Kundenberater im Telefongespräch"
+              width="1563"
+              height="1006"
+              loading="lazy"
+              class="animate-on-scroll"
+              style="
+                width: 100%;
+                height: auto;
+                object-fit: cover;
+                border-radius: var(--radius-2xl);
+                display: block;
+              "
+            />
+            <div class="animate-on-scroll delay-2">
+              <span class="section-eyebrow">Unser Versprechen</span>
+              <h2
+                class="section-title"
+                style="font-size: clamp(1.5rem, 2.5vw, 2rem)"
+              >
+                Ihr persönlicher Berater antwortet in 24 Stunden
+              </h2>
+              <div class="divider"></div>
+              <p class="text-body-lg">
+                Nach Eingang Ihres Antrags wird Ihnen ein persönlicher Berater
+                zugewiesen, der Sie durch den gesamten Prozess begleitet.
+              </p>
+              <ul class="check-list" style="margin-top: var(--space-4)">
+                <li class="check-list__item">
+                  <span class="check-list__icon">✓</span>
+                  <span class="check-list__text"
+                    >Erste Rückmeldung innerhalb von 24 Stunden</span
+                  >
+                </li>
+                <li class="check-list__item">
+                  <span class="check-list__icon">✓</span>
+                  <span class="check-list__text"
+                    >Persönlicher Ansprechpartner für alle Fragen</span
+                  >
+                </li>
+                <li class="check-list__item">
+                  <span class="check-list__icon">✓</span>
+                  <span class="check-list__text"
+                    >Kostenlose Beratung ohne versteckte Gebühren</span
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div id="siteFooterPlaceholder"></div>
+
+    <script src="js/template.js"></script>
+    <script src="js/loader.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/bg-effects.js" defer></script>
+    <script src="js/chat-widget.js" defer></script>
+    <script src="js/notifications.js"></script>
+    <script src="js/forms.js"></script>
+
+    <script>(function() {
+  var params = new URLSearchParams(window.location.search);
+  var typ = params.get("typ");
+  if (!typ) return;
+  var mapping = {
+    privatkredit: "Privatkredit",
+    immobilien: "Immobilienkredit",
+    autokredit: "Autofinanzierung",
+    renovierung: "Renovierungskredit",
+    hypothek: "Hypothekenkredit",
+    umschuldung: "Umschuldung"
+  };
+  var value = mapping[typ.toLowerCase()];
+  if (!value) return;
+  var radio = document.querySelector(
+    'input[name="kreditart"][value="' + value + '"]'
+  );
+  if (radio) {
+    radio.checked = true;
+    var option = radio.closest(".form-radio-option");
+    if (option) option.classList.add("selected");
+  }
+})();
+</script>
+  </body>
+</html>

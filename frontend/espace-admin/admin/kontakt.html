@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="api-base" content="https://api.blitzleihen.com" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Kontakt – Blitz Leihen Admin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../css/global.css" />
+    <link rel="stylesheet" href="../../css/components.css" />
+    <link rel="stylesheet" href="../../css/admin.css" />
+    <link rel="icon" type="image/webp" href="../blitz_leihen_logo.webp" />
+  </head>
+  <body class="admin-body">
+    <div class="admin-layout">
+
+      <aside
+        class="admin-sidebar"
+        id="adminSidebar"
+        role="navigation"
+        aria-label="Administration"
+      >
+        <div class="admin-sidebar__header">
+          <img
+            src="../blitz_leihen_logo.webp"
+            alt="Blitz Leihen"
+            class="admin-sidebar__logo"
+          />
+        </div>
+
+        <nav class="admin-nav">
+          <span class="admin-nav__section-title">Hauptmenü</span>
+          <a href="dashboard.html" class="admin-nav__link">
+            <span class="admin-nav__icon">📊</span> Dashboard
+          </a>
+          <a href="dashboard.html#demandes" class="admin-nav__link">
+            <span class="admin-nav__icon">📋</span> Alle Anträge
+          </a>
+          <a href="dashboard.html#neu" class="admin-nav__link">
+            <span class="admin-nav__icon">🆕</span> Neue Anträge
+            <span
+              id="newCount"
+              style="
+                margin-left: auto;
+                background: var(--color-accent);
+                color: white;
+                border-radius: var(--radius-full);
+                padding: 2px 8px;
+                font-size: 0.65rem;
+                font-weight: 700;
+              "
+              >0</span
+            >
+          </a>
+          <a href="chat.html" class="admin-nav__link">
+            <span class="admin-nav__icon">💬</span> Live-Chat
+            <span
+              id="chatUnreadCount"
+              style="
+                margin-left: auto;
+                background: var(--color-accent);
+                color: white;
+                border-radius: var(--radius-full);
+                padding: 2px 8px;
+                font-size: 0.65rem;
+                font-weight: 700;
+              "
+              >0</span
+            >
+          </a>
+
+          <span class="admin-nav__section-title">Verwaltung</span>
+          <a href="kunden.html" class="admin-nav__link">
+            <span class="admin-nav__icon">👥</span> Kunden
+          </a>
+          <a href="kontakt.html" class="admin-nav__link active">
+            <span class="admin-nav__icon">✉️</span> Kontakt
+            <span
+              id="kontaktCount"
+              style="
+                margin-left: auto;
+                background: var(--color-accent);
+                color: white;
+                border-radius: var(--radius-full);
+                padding: 2px 8px;
+                font-size: 0.65rem;
+                font-weight: 700;
+              "
+              >0</span
+            >
+          </a>
+          <a href="#" class="admin-nav__link" id="navEmailsSoon">
+            <span class="admin-nav__icon">📧</span> E-Mails
+          </a>
+          <a href="einstellungen.html" class="admin-nav__link">
+            <span class="admin-nav__icon">⚙️</span> Einstellungen
+          </a>
+
+          <span class="admin-nav__section-title">System</span>
+          <a href="../index.html" class="admin-nav__link" target="_blank">
+            <span class="admin-nav__icon">🌐</span> Website anzeigen
+          </a>
+          <a href="#" class="admin-nav__link" id="logoutBtn">
+            <span class="admin-nav__icon">🚪</span> Abmelden
+          </a>
+        </nav>
+
+        <div class="admin-sidebar__footer">
+          <div class="admin-user">
+            <div class="admin-user__avatar" id="userAvatar">A</div>
+            <div>
+              <div class="admin-user__name" id="userName">Administrator</div>
+              <div class="admin-user__role">Super Admin</div>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <div class="admin-sidebar-backdrop" id="sidebarBackdrop"></div>
+
+
+      <div class="admin-content">
+        <header class="admin-topbar">
+          <button
+            id="sidebarToggle"
+            style="
+              display: none;
+              background: none;
+              border: none;
+              cursor: pointer;
+              font-size: 1.3rem;
+              color: var(--color-primary);
+              margin-right: var(--space-4);
+            "
+            aria-label="Menü öffnen"
+          >
+            ☰
+          </button>
+          <h1 class="admin-topbar__title">Kontakt</h1>
+          <div class="admin-topbar__actions">
+            <div class="admin-search">
+              <span class="admin-search__icon">🔍</span>
+              <input
+                type="text"
+                id="kontaktSearch"
+                placeholder="Name, E-Mail oder Betreff suchen…"
+                aria-label="Suche"
+              />
+            </div>
+            <div
+              class="admin-user__avatar"
+              id="topbarAvatar"
+              style="cursor: pointer"
+              title="Abmelden"
+              onclick="logout()"
+            >
+              A
+            </div>
+          </div>
+        </header>
+
+        <main class="admin-main" id="adminMain">
+          <div class="admin-table-header" style="margin-bottom: var(--space-5)">
+            <div>
+              <h2
+                style="
+                  font-family: var(--font-heading);
+                  font-size: var(--text-xl);
+                  color: var(--color-primary);
+                "
+              >
+                Kontaktnachrichten
+              </h2>
+              <p
+                style="
+                  font-size: var(--text-sm);
+                  color: var(--color-text-muted);
+                "
+                id="kontaktCountLabel"
+              >
+                Werden geladen…
+              </p>
+            </div>
+            <div style="display: flex; gap: var(--space-2)">
+              <select class="status-select" id="kontaktStatusFilter">
+                <option value="">Alle Status</option>
+                <option value="neu">Neu</option>
+                <option value="beantwortet">Beantwortet</option>
+                <option value="geschlossen">Geschlossen</option>
+              </select>
+            </div>
+          </div>
+
+          <div id="kontaktGrid" class="client-grid">
+
+          </div>
+        </main>
+      </div>
+    </div>
+
+
+    <div class="admin-modal-overlay" id="kontaktDrawerOverlay">
+      <div class="admin-drawer">
+        <div class="admin-drawer__header">
+          <h3 class="admin-drawer__title" id="kontaktDrawerTitle">
+            Nachricht
+          </h3>
+          <button class="admin-drawer__close" id="kontaktDrawerClose">
+            ✕
+          </button>
+        </div>
+        <div class="admin-drawer__body" id="kontaktDrawerBody"></div>
+      </div>
+    </div>
+
+    <script src="../js/admin-common.js"></script>
+    <script>(function() {
+  "use strict";
+  var API_BASE = window.BlitzAdmin.API_BASE;
+  var checkAuth = window.BlitzAdmin.checkAuth;
+  var authHeaders = window.BlitzAdmin.authHeaders;
+  var logout = window.BlitzAdmin.logout;
+  var loadUserInfo = window.BlitzAdmin.loadUserInfo;
+  var showToast = window.BlitzAdmin.showToast;
+  window.logout = logout;
+  var allContacts = [];
+  var currentId = null;
+  var searchDebounceTimer = null;
+  function loadContacts() {
+    var params = new URLSearchParams();
+    params.set("limit", "100");
+    var statut = document.getElementById("kontaktStatusFilter").value;
+    var search = document.getElementById("kontaktSearch").value;
+    if (statut) params.set("statut", statut);
+    if (search) params.set("search", search);
+    fetch(API_BASE + "/contact?" + params.toString(), {
+      headers: authHeaders()
+    }).then(function(r) {
+      if (r.status === 401) {
+        logout();
+        return null;
+      }
+      return r.json();
+    }).then(function(json) {
+      if (!json || !json.success) return;
+      allContacts = json.data.contacts || [];
+      renderGrid();
+    }).catch(function() {
+      document.getElementById("kontaktGrid").innerHTML = '<div class="admin-empty-state"><span class="admin-empty-state__icon">\u26A0\uFE0F</span><div class="admin-empty-state__title">Verbindung zum Server fehlgeschlagen</div></div>';
+    });
+  }
+  function statusLabel(s) {
+    return { neu: "\u{1F195} Neu", beantwortet: "\u2705 Beantwortet", geschlossen: "\u26AA Geschlossen" }[s] || s;
+  }
+  function renderGrid() {
+    var grid = document.getElementById("kontaktGrid");
+    var label = document.getElementById("kontaktCountLabel");
+    label.textContent = allContacts.length + " Nachricht" + (allContacts.length !== 1 ? "en" : "") + " gefunden";
+    if (!allContacts.length) {
+      grid.innerHTML = '<div class="admin-empty-state"><span class="admin-empty-state__icon">\u{1F4ED}</span><div class="admin-empty-state__title">Keine Nachrichten gefunden</div></div>';
+      return;
+    }
+    grid.innerHTML = allContacts.map(function(c, i) {
+      var initial = (c.nom || c.email || "?")[0].toUpperCase();
+      var date = c.createdAt ? new Date(c.createdAt).toLocaleDateString("de-DE") : "\u2014";
+      return [
+        '<div class="client-card" data-index="' + i + '">',
+        '  <div class="client-card__header">',
+        '    <div class="client-card__avatar">' + initial + "</div>",
+        '    <div style="min-width:0; flex:1;">',
+        '      <div class="client-card__name">' + (c.nom || "Unbekannt") + "</div>",
+        '      <div class="client-card__email">' + (c.betreff || "\u2014") + "</div>",
+        "    </div>",
+        "  </div>",
+        '  <div class="client-card__stats">',
+        "    <div>" + statusLabel(c.statut) + "</div>",
+        "    <div>" + date + "</div>",
+        "  </div>",
+        "</div>"
+      ].join("");
+    }).join("");
+    Array.prototype.forEach.call(
+      grid.querySelectorAll(".client-card"),
+      function(el) {
+        el.addEventListener("click", function() {
+          openDrawer(allContacts[parseInt(el.getAttribute("data-index"))]);
+        });
+      }
+    );
+  }
+  function openDrawer(c) {
+    currentId = c._id;
+    document.getElementById("kontaktDrawerTitle").textContent = c.nom || "Nachricht";
+    document.getElementById("kontaktDrawerOverlay").classList.add("open");
+    document.getElementById("kontaktDrawerBody").innerHTML = buildDrawerBody(c, null);
+    bindDrawerEvents();
+    fetch(API_BASE + "/contact/" + c._id, { headers: authHeaders() }).then(function(r) {
+      return r.ok ? r.json() : null;
+    }).then(function(json) {
+      if (!json || !json.success || currentId !== c._id) return;
+      document.getElementById("kontaktDrawerBody").innerHTML = buildDrawerBody(json.data.contact, json.data.contact.reponses);
+      bindDrawerEvents();
+    }).catch(function(e) {
+      console.error("Kontakt detail error:", e);
+    });
+  }
+  function buildDrawerBody(c, reponses) {
+    var thread;
+    if (reponses === null) {
+      thread = '<p style="font-size:var(--text-sm); color:var(--color-text-muted);">Wird geladen\u2026</p>';
+    } else if (!reponses.length) {
+      thread = '<p style="font-size:var(--text-sm); color:var(--color-text-muted);">Noch keine Antwort gesendet.</p>';
+    } else {
+      thread = reponses.map(function(r) {
+        var rdate = r.createdAt ? new Date(r.createdAt).toLocaleString("de-DE") : "\u2014";
+        var failedNote = !r.envoyeParEmail ? " \xB7 \u26A0\uFE0F Versand fehlgeschlagen" : "";
+        return '<div class="reply-thread-item"><div class="reply-thread-item__meta">' + (r.auteurNom || "Team") + " \xB7 " + rdate + failedNote + '</div><div class="reply-thread-item__body">' + r.texte + "</div></div>";
+      }).join("");
+    }
+    return [
+      '<div class="detail-section">',
+      '<div class="detail-section__title">Nachricht des Besuchers</div>',
+      '<div class="detail-grid">',
+      detailRow(
+        "E-Mail",
+        c.email ? '<a href="mailto:' + c.email + '">' + c.email + "</a>" : "\u2014"
+      ),
+      detailRow(
+        "Telefon",
+        c.telefon && c.telefon !== "\u2014" ? '<a href="tel:' + c.telefon + '">' + c.telefon + "</a>" : "\u2014"
+      ),
+      detailRow("Betreff", c.betreff || "\u2014", true),
+      detailRow(
+        "Eingegangen",
+        c.createdAt ? new Date(c.createdAt).toLocaleString("de-DE") : "\u2014"
+      ),
+      "</div>",
+      '<div style="margin-top:var(--space-3);">',
+      '<div class="detail-field__label">Nachricht</div>',
+      '<div class="detail-field__value" style="white-space:pre-line;">' + (c.nachricht || "\u2014") + "</div>",
+      "</div>",
+      "</div>",
+      '<div class="detail-section">',
+      '<div class="detail-section__title">Antwortverlauf</div>',
+      thread,
+      "</div>",
+      '<div class="detail-section">',
+      '<div class="detail-section__title">Antwort an den Kunden</div>',
+      '<textarea id="kontaktReplyText" class="reply-textarea" placeholder="Ihre Antwort eingeben\u2026" rows="4"></textarea>',
+      '<button class="btn btn-primary" id="kontaktReplyBtn" type="button">Antwort senden</button>',
+      "</div>"
+    ].join("");
+  }
+  function detailRow(label, value, full) {
+    return "<div" + (full ? ' style="grid-column:1/-1;"' : "") + '><div class="detail-field__label">' + label + '</div><div class="detail-field__value">' + (value || "\u2014") + "</div></div>";
+  }
+  function bindDrawerEvents() {
+    var btn = document.getElementById("kontaktReplyBtn");
+    if (btn) btn.addEventListener("click", sendReply);
+  }
+  function sendReply() {
+    if (!currentId) return;
+    var textarea = document.getElementById("kontaktReplyText");
+    var texte = (textarea.value || "").trim();
+    if (!texte) return;
+    var btn = document.getElementById("kontaktReplyBtn");
+    btn.disabled = true;
+    btn.textContent = "Wird gesendet\u2026";
+    fetch(API_BASE + "/contact/" + currentId + "/reponse", {
+      method: "POST",
+      headers: authHeaders(),
+      body: JSON.stringify({ texte })
+    }).then(function(r) {
+      if (r.status === 401) {
+        logout();
+        return null;
+      }
+      return r.json();
+    }).then(function(json) {
+      if (!json) return;
+      if (!json.success && !json.data)
+        throw new Error(json.message || "Fehler beim Senden");
+      showToast(json.message || "Antwort gesendet.");
+      loadContacts();
+      window.BlitzAdmin.updateKontaktBadge();
+      if (json.data && json.data.contact) openDrawer(json.data.contact);
+    }).catch(function(err) {
+      showToast("Fehler beim Senden: " + err.message);
+      btn.disabled = false;
+      btn.textContent = "Antwort senden";
+    });
+  }
+  function bindEvents() {
+    document.getElementById("kontaktSearch").addEventListener("input", function() {
+      clearTimeout(searchDebounceTimer);
+      searchDebounceTimer = setTimeout(loadContacts, 300);
+    });
+    document.getElementById("kontaktStatusFilter").addEventListener("change", loadContacts);
+    document.getElementById("kontaktDrawerClose").addEventListener("click", function() {
+      document.getElementById("kontaktDrawerOverlay").classList.remove("open");
+      currentId = null;
+    });
+    document.getElementById("kontaktDrawerOverlay").addEventListener("click", function(e) {
+      if (e.target === this) {
+        this.classList.remove("open");
+        currentId = null;
+      }
+    });
+    var logoutBtn = document.getElementById("logoutBtn");
+    if (logoutBtn)
+      logoutBtn.addEventListener("click", function(e) {
+        e.preventDefault();
+        logout();
+      });
+  }
+  function init() {
+    if (!checkAuth()) return;
+    loadUserInfo();
+    bindEvents();
+    window.BlitzAdmin.initSidebar();
+    loadContacts();
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+})();
+</script>
+  </body>
+</html>

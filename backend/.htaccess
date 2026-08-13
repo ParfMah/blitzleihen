@@ -1,0 +1,13 @@
+RewriteEngine On
+
+# Ne jamais servir ces fichiers/dossiers directement
+<FilesMatch "^(secrets\.php|secrets\.example\.php|install\.sql|\.env.*)$">
+  Require all denied
+</FilesMatch>
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.php [QSA,L]
+
+# Sécurité de base
+Options -Indexes

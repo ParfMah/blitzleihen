@@ -1,0 +1,963 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="api-base" content="https://api.blitzleihen.com" />
+    <meta
+      name="description"
+      content="Immobilienfinanzierung bei Blitz Leihen: Baufinanzierung, Hauskauf, Eigentumswohnung, Anschlussfinanzierung. Günstige Zinsen ab 1,8% eff. p.a. Kostenlose Beratung."
+    />
+    <meta
+      name="keywords"
+      content="Immobilienfinanzierung Deutschland, Baufinanzierung, Hauskauf Kredit, Immobilienkredit günstig, Anschlussfinanzierung"
+    />
+    <meta name="robots" content="index, follow" />
+    <title>Immobilienfinanzierung & Baufinanzierung | Blitz Leihen</title>
+
+
+    <meta
+      property="og:title"
+      content="Immobilienfinanzierung & Baufinanzierung | Blitz Leihen"
+    />
+    <meta
+      property="og:description"
+      content="Immobilienfinanzierung bei Blitz Leihen: Baufinanzierung, Hauskauf, Eigentumswohnung, Anschlussfinanzierung. Günstige Zinsen ab 1,8% eff. p.a. Kostenlose Beratung."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="de_DE" />
+    <meta property="og:site_name" content="Blitz Leihen" />
+    <meta
+      property="og:image"
+      content="https://www.blitzleihen.com/blitz_leihen_logo.webp"
+    />
+    <meta
+      property="og:url"
+      content="https://www.blitzleihen.com/immobilien.html"
+    />
+
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Immobilienfinanzierung & Baufinanzierung | Blitz Leihen"
+    />
+    <meta
+      name="twitter:description"
+      content="Immobilienfinanzierung bei Blitz Leihen: Baufinanzierung, Hauskauf, Eigentumswohnung, Anschlussfinanzierung. Günstige Zinsen ab 1,8% eff. p.a. Kostenlose Beratung."
+    />
+    <meta
+      name="twitter:image"
+      content="https://www.blitzleihen.com/blitz_leihen_logo.webp"
+    />
+
+
+    <link rel="canonical" href="https://www.blitzleihen.com/immobilien.html" />
+
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Startseite",
+            "item": "https://www.blitzleihen.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Immobilienfinanzierung",
+            "item": "https://www.blitzleihen.com/immobilien.html"
+          }
+        ]
+      }
+    </script>
+
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Wie viel Eigenkapital benötige ich für eine Immobilienfinanzierung?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Ein höherer Eigenkapitalanteil führt in der Regel zu günstigeren Konditionen. Eine Vollfinanzierung ohne Eigenkapital ist bei guter Bonität ebenfalls möglich, meist jedoch zu weniger günstigen Zinsen."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Was ist der Beleihungsauslauf und warum ist er wichtig?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Der Beleihungsauslauf beschreibt das Verhältnis zwischen Kreditsumme und Immobilienwert. Ein niedrigerer Beleihungsauslauf führt in der Regel zu günstigeren Zinssätzen."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Welche Nebenkosten muss ich bei einem Immobilienkauf einplanen?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Neben dem Kaufpreis fallen üblicherweise Grunderwerbsteuer, Notar- und Grundbuchkosten sowie ggf. Maklerprovision an — je nach Bundesland insgesamt oft zwischen 8 % und 15 % des Kaufpreises."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Wie lange dauert die Zusage für eine Immobilienfinanzierung?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Nach Einreichung aller erforderlichen Unterlagen erhalten Sie in der Regel innerhalb von 3-5 Werktagen eine Rückmeldung."
+            }
+          }
+        ]
+      }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/navigation.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/pages.css" />
+    <link rel="stylesheet" href="css/chat-widget.css" />
+    <link rel="stylesheet" href="css/bg-effects.css" />
+    <link rel="icon" type="image/webp" href="blitz_leihen_logo.webp" />
+
+    <style>
+
+
+
+      .immo-types {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: var(--space-4);
+        margin-bottom: var(--space-12);
+      }
+
+      .immo-type-card {
+        background: var(--color-white);
+        border: 2px solid var(--color-border);
+        border-radius: var(--radius-xl);
+        padding: var(--space-6);
+        text-align: center;
+        cursor: pointer;
+        transition: all var(--transition-normal);
+
+        min-width: 0;
+      }
+
+      .immo-type-card:hover,
+      .immo-type-card.active {
+        border-color: var(--color-primary);
+        background: rgba(11, 45, 89, 0.04);
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-md);
+      }
+
+      .immo-type-card__icon {
+        font-size: 2.5rem;
+        display: block;
+        margin-bottom: var(--space-3);
+      }
+
+      .immo-type-card__label {
+        font-size: var(--text-sm);
+        font-weight: var(--weight-semi);
+        color: var(--color-primary);
+      }
+
+
+      .immo-split {
+        display: grid;
+        grid-template-columns: 1.1fr 1fr;
+        gap: var(--space-16);
+        align-items: center;
+      }
+
+      .immo-split > * {
+        min-width: 0;
+      }
+
+
+      .immo-table-wrap {
+        overflow-x: auto;
+        border-radius: var(--radius-xl);
+        box-shadow: var(--shadow-md);
+        border: 1px solid var(--color-border);
+      }
+
+      .immo-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: var(--text-sm);
+        background: var(--color-white);
+        min-width: 600px;
+      }
+
+      .immo-table thead tr {
+        background: var(--color-primary);
+        color: var(--color-white);
+      }
+
+      .immo-table thead th {
+        padding: var(--space-4) var(--space-5);
+        text-align: left;
+        font-weight: var(--weight-semi);
+        font-size: var(--text-xs);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+
+      .immo-table tbody tr {
+        border-bottom: 1px solid var(--color-border);
+        transition: background var(--transition-fast);
+      }
+
+      .immo-table tbody tr:last-child {
+        border-bottom: none;
+      }
+
+      .immo-table tbody tr:hover {
+        background: var(--color-bg-section);
+      }
+
+      .immo-table tbody td {
+        padding: var(--space-4) var(--space-5);
+        color: var(--color-text);
+      }
+
+      .immo-table tbody td:first-child {
+        font-weight: var(--weight-semi);
+        color: var(--color-primary);
+      }
+
+
+      .immo-table tbody td:not(:first-child) {
+        font-family: var(--font-mono);
+      }
+
+      .rate-highlight {
+        color: var(--color-success);
+        font-weight: var(--weight-bold);
+      }
+
+
+      .immo-timeline {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: var(--space-2);
+        position: relative;
+      }
+
+      .immo-timeline::before {
+        content: "";
+        position: absolute;
+        top: 24px;
+        left: 48px;
+        right: 48px;
+        height: 2px;
+        background: linear-gradient(
+          90deg,
+          var(--color-primary),
+          var(--color-accent)
+        );
+        z-index: 0;
+      }
+
+      .timeline-step {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: var(--space-3);
+        position: relative;
+        z-index: 1;
+      }
+
+      .timeline-step__dot {
+        width: 48px;
+        height: 48px;
+        border-radius: var(--radius-full);
+        background: var(--color-white);
+        border: 3px solid var(--color-primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: var(--weight-bold);
+        color: var(--color-primary);
+        font-size: var(--text-sm);
+        box-shadow: var(--shadow-md);
+      }
+
+      .timeline-step:nth-child(even) .timeline-step__dot {
+        background: var(--color-primary);
+        color: var(--color-white);
+      }
+
+      .timeline-step__label {
+        font-size: var(--text-xs);
+        font-weight: var(--weight-medium);
+        color: var(--color-text);
+        line-height: 1.3;
+      }
+
+      @media (max-width: 1024px) {
+        .immo-split {
+          grid-template-columns: 1fr;
+        }
+        .immo-types {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .immo-timeline {
+          grid-template-columns: 1fr;
+        }
+        .immo-timeline::before {
+          display: none;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .immo-types {
+          grid-template-columns: repeat(2, 1fr);
+          gap: var(--space-3);
+        }
+      }
+
+      @media (max-width: 420px) {
+
+        .immo-types {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="pageLoaderPlaceholder"></div>
+    <div id="siteHeaderPlaceholder"></div>
+
+    <main id="main-content">
+
+
+      <div
+        class="hero-mini hero-mini--photo"
+        id="immobilienHeroBg"
+        role="banner"
+        style="
+          --hero-photo: url(&quot;https://res.cloudinary.com/duramdsjz/image/upload/f_auto,q_auto/v1784173519/immobilienfinanzierung-hero-schluesseluebergabe.webp&quot;);
+        "
+      >
+        <div class="bg-overlay-contrast" aria-hidden="true"></div>
+        <div class="hero-mini__content">
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            <span class="breadcrumb__item"
+              ><a href="index.html">Startseite</a></span
+            >
+            <span class="breadcrumb__separator">›</span>
+            <span class="breadcrumb__item">Immobilienfinanzierung</span>
+          </nav>
+          <h1 class="hero-mini__title">Immobilienfinanzierung</h1>
+          <p class="hero-mini__subtitle">
+            Von der Traumimmobilie bis zur Anschlussfinanzierung — wir begleiten
+            Sie mit maßgeschneiderten Lösungen und Top-Konditionen.
+          </p>
+        </div>
+      </div>
+
+
+      <section class="section-py" aria-labelledby="immo-intro-title">
+        <div class="container">
+          <header
+            class="section-header section-header--center animate-on-scroll"
+          >
+            <span class="section-eyebrow">Immobilienfinanzierung</span>
+            <h2 class="section-title" id="immo-intro-title">
+              Was möchten Sie finanzieren?
+            </h2>
+            <div class="divider divider-center"></div>
+            <p class="section-subtitle">
+              Wir bieten maßgeschneiderte Finanzierungslösungen für alle Arten
+              von Immobilien.
+            </p>
+          </header>
+
+
+          <div class="immo-types animate-on-scroll">
+            <div class="immo-type-card">
+              <span class="immo-type-card__icon">🏠</span>
+              <span class="immo-type-card__label">Einfamilienhaus</span>
+            </div>
+            <div class="immo-type-card">
+              <span class="immo-type-card__icon">🏢</span>
+              <span class="immo-type-card__label">Eigentumswohnung</span>
+            </div>
+            <div class="immo-type-card">
+              <span class="immo-type-card__icon">🏗️</span>
+              <span class="immo-type-card__label"
+                >Neubau / Baufinanzierung</span
+              >
+            </div>
+            <div class="immo-type-card">
+              <span class="immo-type-card__icon">📈</span>
+              <span class="immo-type-card__label">Kapitalanlage</span>
+            </div>
+          </div>
+
+
+          <div class="immo-split">
+            <div class="animate-on-scroll">
+              <span class="section-eyebrow"
+                >Warum Blitz Leihen für Ihre Immobilie?</span
+              >
+              <h3
+                class="section-title"
+                style="font-size: clamp(1.5rem, 2.5vw, 2rem)"
+              >
+                Wir machen Ihren Immobilienwunsch zur Wirklichkeit
+              </h3>
+              <div class="divider"></div>
+              <p class="text-body-lg">
+                Der Kauf einer Immobilie ist eine der größten Entscheidungen in
+                Ihrem Leben. Unser erfahrenes Team begleitet Sie von der ersten
+                Beratung bis zur Schlüsselübergabe — mit transparenten
+                Konditionen und persönlichem Service.
+              </p>
+              <div class="immo-features">
+                <div class="immo-feature">
+                  <div class="immo-feature__icon">📊</div>
+                  <div>
+                    <div class="immo-feature__title">Bestmögliche Zinsen</div>
+                    <div class="immo-feature__text">
+                      Ab 1,8% eff. p.a. durch direkte Kreditvergabe
+                    </div>
+                  </div>
+                </div>
+                <div class="immo-feature">
+                  <div class="immo-feature__icon">🔒</div>
+                  <div>
+                    <div class="immo-feature__title">
+                      Zinsbindung bis 25 Jahre
+                    </div>
+                    <div class="immo-feature__text">
+                      Planungssicherheit für die gesamte Laufzeit
+                    </div>
+                  </div>
+                </div>
+                <div class="immo-feature">
+                  <div class="immo-feature__icon">💰</div>
+                  <div>
+                    <div class="immo-feature__title">Bis 100% Finanzierung</div>
+                    <div class="immo-feature__text">
+                      Auch ohne Eigenkapital — bei sehr guter Bonität
+                    </div>
+                  </div>
+                </div>
+                <div class="immo-feature">
+                  <div class="immo-feature__icon">👤</div>
+                  <div>
+                    <div class="immo-feature__title">Persönlicher Berater</div>
+                    <div class="immo-feature__text">
+                      Ihr fester Ansprechpartner für alle Fragen
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <a
+                href="kreditantrag.html?typ=immobilien"
+                class="btn btn-primary btn-lg"
+                style="margin-top: var(--space-8)"
+                >Jetzt Immobilienfinanzierung anfragen</a
+              >
+            </div>
+
+            <div class="animate-on-scroll delay-2">
+              <img
+                src="https://res.cloudinary.com/duramdsjz/image/upload/f_auto,q_auto/v1783849044/blitz-leihen-immobilienfinanzierung-haus-garten_wuuykt.webp"
+                alt="Immobilienfinanzierung – modernes Haus mit Garten"
+                width="800"
+                height="520"
+                loading="eager"
+                style="
+                  width: 100%;
+                  height: 520px;
+                  object-fit: cover;
+                  border-radius: var(--radius-2xl);
+                  display: block;
+                "
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <section
+        class="section-py"
+        style="background: var(--color-bg-section)"
+        aria-labelledby="table-title"
+      >
+        <div class="container">
+          <header
+            class="section-header section-header--center animate-on-scroll"
+          >
+            <span class="section-eyebrow">Unsere Konditionen</span>
+            <h2 class="section-title" id="table-title">
+              Aktuelle Zinssätze im Überblick
+            </h2>
+            <div class="divider divider-center"></div>
+            <p class="section-subtitle">
+              Transparente und wettbewerbsfähige Konditionen — ohne versteckte
+              Gebühren.
+            </p>
+          </header>
+
+          <div class="immo-table-wrap animate-on-scroll">
+            <table class="immo-table">
+              <thead>
+                <tr>
+                  <th>Produkttyp</th>
+                  <th>Zinsbindung</th>
+                  <th>Effektiver Jahreszins</th>
+                  <th>Beleihungsauslauf</th>
+                  <th>Tilgungsrate</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Hauskauf / Wohnungskauf</td>
+                  <td>5 Jahre</td>
+                  <td class="rate-highlight">ab 1,80% p.a.</td>
+                  <td>bis 80%</td>
+                  <td>min. 1%</td>
+                </tr>
+                <tr>
+                  <td>Hauskauf / Wohnungskauf</td>
+                  <td>10 Jahre</td>
+                  <td class="rate-highlight">ab 2,10% p.a.</td>
+                  <td>bis 80%</td>
+                  <td>min. 1%</td>
+                </tr>
+                <tr>
+                  <td>Hauskauf / Wohnungskauf</td>
+                  <td>15 Jahre</td>
+                  <td class="rate-highlight">ab 2,45% p.a.</td>
+                  <td>bis 80%</td>
+                  <td>min. 1%</td>
+                </tr>
+                <tr>
+                  <td>Baufinanzierung (Neubau)</td>
+                  <td>10 Jahre</td>
+                  <td class="rate-highlight">ab 2,25% p.a.</td>
+                  <td>bis 85%</td>
+                  <td>min. 1,5%</td>
+                </tr>
+                <tr>
+                  <td>Anschlussfinanzierung</td>
+                  <td>5–20 Jahre</td>
+                  <td class="rate-highlight">ab 1,95% p.a.</td>
+                  <td>bis 75%</td>
+                  <td>min. 1%</td>
+                </tr>
+                <tr>
+                  <td>Kapitalanlage / Renditeobjekt</td>
+                  <td>10 Jahre</td>
+                  <td class="rate-highlight">ab 2,65% p.a.</td>
+                  <td>bis 70%</td>
+                  <td>min. 2%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p
+            style="
+              font-size: var(--text-xs);
+              color: var(--color-text-muted);
+              margin-top: var(--space-4);
+              text-align: center;
+            "
+          >
+            *Alle Zinssätze sind Richtwerte für sehr gute Bonitäten. Der
+            tatsächliche Zinssatz hängt von Ihrer individuellen Situation ab.
+            Stand: 2025. Repräsentatives Beispiel: 200.000 € Darlehen, 10 Jahre
+            Zinsbindung, 2,10% eff. p.a., mtl. Rate: 1.026 €, Gesamtbetrag:
+            217.894 €.
+          </p>
+        </div>
+      </section>
+
+
+      <section class="section-py" aria-labelledby="process-immo-title">
+        <div class="container">
+          <header
+            class="section-header section-header--center animate-on-scroll"
+          >
+            <span class="section-eyebrow">Unser Prozess</span>
+            <h2 class="section-title" id="process-immo-title">
+              In 5 Schritten zur Immobilienfinanzierung
+            </h2>
+            <div class="divider divider-center"></div>
+          </header>
+
+          <div
+            class="immo-timeline animate-on-scroll"
+            style="
+              max-width: 900px;
+              margin-inline: auto;
+              padding-top: var(--space-4);
+            "
+          >
+            <div class="timeline-step">
+              <div class="timeline-step__dot">1</div>
+              <p class="timeline-step__label">
+                Kostenlose Online-Beratung anfragen
+              </p>
+            </div>
+            <div class="timeline-step">
+              <div class="timeline-step__dot">2</div>
+              <p class="timeline-step__label">
+                Unterlagen einreichen & Bonität prüfen
+              </p>
+            </div>
+            <div class="timeline-step">
+              <div class="timeline-step__dot">3</div>
+              <p class="timeline-step__label">
+                Maßgeschneidertes Angebot erhalten
+              </p>
+            </div>
+            <div class="timeline-step">
+              <div class="timeline-step__dot">4</div>
+              <p class="timeline-step__label">
+                Notartermin & Vertrag unterzeichnen
+              </p>
+            </div>
+            <div class="timeline-step">
+              <div class="timeline-step__dot">5</div>
+              <p class="timeline-step__label">Auszahlung & Schlüsselübergabe</p>
+            </div>
+          </div>
+
+          <div style="text-align: center; margin-top: var(--space-12)">
+            <a
+              href="kreditantrag.html?typ=immobilien"
+              class="btn btn-primary btn-lg"
+              >Jetzt Beratung starten</a
+            >
+          </div>
+        </div>
+      </section>
+
+
+      <section
+        class="section-py"
+        style="background: var(--color-bg-section)"
+        aria-labelledby="immo-gallery-title"
+      >
+        <div class="container">
+          <header
+            class="section-header section-header--center animate-on-scroll"
+          >
+            <span class="section-eyebrow">Finanzierte Immobilien</span>
+            <h2 class="section-title" id="immo-gallery-title">
+              Wir haben bereits geholfen
+            </h2>
+            <div class="divider divider-center"></div>
+          </header>
+
+          <div class="grid-3 animate-on-scroll">
+            <img
+              src="https://res.cloudinary.com/duramdsjz/image/upload/f_auto,q_auto/v1783849043/blitz-leihen-immobilien-galerie-einfamilienhaus_m7fnek.webp"
+              alt="Finanziertes Einfamilienhaus – Referenzbeispiel"
+              width="600"
+              height="280"
+              loading="lazy"
+              style="
+                width: 100%;
+                height: 280px;
+                object-fit: cover;
+                border-radius: var(--radius-xl);
+                display: block;
+              "
+            />
+            <img
+              src="https://res.cloudinary.com/duramdsjz/image/upload/f_auto,q_auto/v1783849044/blitz-leihen-immobilienkredit-finanziertes-haus_s5b5c3.webp"
+              alt="Finanzierte Eigentumswohnung – Referenzbeispiel"
+              width="600"
+              height="280"
+              loading="lazy"
+              style="
+                width: 100%;
+                height: 280px;
+                object-fit: cover;
+                border-radius: var(--radius-xl);
+                display: block;
+              "
+            />
+            <img
+              src="https://res.cloudinary.com/duramdsjz/image/upload/f_auto,q_auto/v1783849043/blitz-leihen-immobilien-galerie-neubau-baustelle_nydoen.webp"
+              alt="Neubau-Baustelle – finanziert mit Blitz Leihen"
+              width="600"
+              height="280"
+              loading="lazy"
+              style="
+                width: 100%;
+                height: 280px;
+                object-fit: cover;
+                border-radius: var(--radius-xl);
+                display: block;
+              "
+            />
+          </div>
+        </div>
+      </section>
+
+
+      <section class="section-py" aria-labelledby="immo-testi-title">
+        <div class="container">
+          <header
+            class="section-header section-header--center animate-on-scroll"
+          >
+            <span class="section-eyebrow">Zufriedene Eigentümer</span>
+            <h2 class="section-title" id="immo-testi-title">
+              Was unsere Immobilienkunden sagen
+            </h2>
+            <div class="divider divider-center"></div>
+            <p
+              style="
+                font-size: var(--text-xs);
+                color: var(--color-text-muted);
+                margin-top: var(--space-3);
+                font-style: italic;
+              "
+            >
+              Beispielhafte, illustrative Kundenstimmen.
+
+            </p>
+          </header>
+
+          <div class="grid-2">
+            <div class="testimonial-card animate-on-scroll delay-1">
+              <div class="stars">
+                <span class="star">★</span><span class="star">★</span
+                ><span class="star">★</span> <span class="star">★</span
+                ><span class="star">★</span>
+              </div>
+              <p class="testimonial-card__text">
+                "Dank Blitz Leihen haben wir unser Traumhaus in Bayern zu sehr
+                guten Konditionen finanziert. Der gesamte Prozess war
+                unglaublich professionell und unser Berater hat uns jeden
+                Schritt erklärt."
+              </p>
+              <div class="testimonial-card__author">
+                <div class="testimonial-card__avatar">FM</div>
+                <div>
+                  <p class="testimonial-card__name">Familie Müller</p>
+                  <p class="testimonial-card__location">Augsburg, Bayern</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="testimonial-card animate-on-scroll delay-2">
+              <div class="stars">
+                <span class="star">★</span><span class="star">★</span
+                ><span class="star">★</span> <span class="star">★</span
+                ><span class="star">★</span>
+              </div>
+              <p class="testimonial-card__text">
+                "Als Kapitalanleger war ich begeistert von der Schnelligkeit und
+                den sehr guten Konditionen. Meine Eigentumswohnung in Berlin ist
+                nun finanziert — alles lief reibungslos."
+              </p>
+              <div class="testimonial-card__author">
+                <div class="testimonial-card__avatar">RK</div>
+                <div>
+                  <p class="testimonial-card__name">Robert K.</p>
+                  <p class="testimonial-card__location">Berlin</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <section class="section-py faq-section" aria-labelledby="faq-immo-title">
+        <div class="container">
+          <header
+            class="section-header section-header--center animate-on-scroll"
+          >
+            <span class="section-eyebrow">Häufige Fragen</span>
+            <h2 class="section-title" id="faq-immo-title">
+              Antworten auf Ihre Fragen
+            </h2>
+            <div class="divider divider-center"></div>
+          </header>
+
+          <div style="max-width: 760px; margin-inline: auto">
+            <div class="accordion-group">
+              <div class="accordion-item">
+                <button class="accordion-trigger" aria-expanded="false">
+                  Wie viel Eigenkapital benötige ich für eine
+                  Immobilienfinanzierung?
+                  <span class="accordion-icon">+</span>
+                </button>
+                <div class="accordion-content">
+                  <div class="accordion-body">
+                    Ein höherer Eigenkapitalanteil führt in der Regel zu
+                    günstigeren Konditionen, da er den Beleihungsauslauf senkt.
+                    Eine Vollfinanzierung ohne Eigenkapital ist bei guter
+                    Bonität ebenfalls möglich, meist jedoch zu weniger günstigen
+                    Zinsen. Wir prüfen Ihre individuelle Situation und beraten
+                    Sie zur optimalen Finanzierungsstruktur.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <button class="accordion-trigger" aria-expanded="false">
+                  Was ist der Beleihungsauslauf und warum ist er wichtig?
+                  <span class="accordion-icon">+</span>
+                </button>
+                <div class="accordion-content">
+                  <div class="accordion-body">
+                    Der Beleihungsauslauf beschreibt das Verhältnis zwischen
+                    Kreditsumme und Immobilienwert. Ein niedrigerer
+                    Beleihungsauslauf (z. B. durch mehr Eigenkapital) senkt das
+                    Risiko für den Kreditgeber und führt daher in der Regel zu
+                    günstigeren Zinssätzen.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <button class="accordion-trigger" aria-expanded="false">
+                  Kann ich meine Anschlussfinanzierung auch bei Blitz Leihen
+                  abschließen?
+                  <span class="accordion-icon">+</span>
+                </button>
+                <div class="accordion-content">
+                  <div class="accordion-body">
+                    Ja. Läuft Ihre Zinsbindung aus, unterstützen wir Sie gerne
+                    bei der Anschlussfinanzierung — inklusive eines Vergleichs,
+                    ob eine Verlängerung bei Ihrer bisherigen Bank oder ein
+                    Wechsel zu einem neuen Anbieter günstiger ist.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <button class="accordion-trigger" aria-expanded="false">
+                  Welche Nebenkosten muss ich bei einem Immobilienkauf
+                  einplanen?
+                  <span class="accordion-icon">+</span>
+                </button>
+                <div class="accordion-content">
+                  <div class="accordion-body">
+                    Neben dem Kaufpreis fallen üblicherweise Grunderwerbsteuer,
+                    Notar- und Grundbuchkosten sowie ggf. Maklerprovision an —
+                    je nach Bundesland insgesamt oft zwischen 8 % und 15 % des
+                    Kaufpreises. Diese Nebenkosten sollten idealerweise durch
+                    Eigenkapital gedeckt werden.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <button class="accordion-trigger" aria-expanded="false">
+                  Wie lange dauert die Zusage für eine Immobilienfinanzierung?
+                  <span class="accordion-icon">+</span>
+                </button>
+                <div class="accordion-content">
+                  <div class="accordion-body">
+                    Nach Einreichung aller erforderlichen Unterlagen erhalten
+                    Sie in der Regel innerhalb von 3-5 Werktagen eine
+                    Rückmeldung. Bei komplexeren Fällen (z. B.
+                    Kapitalanlageobjekte) kann die Prüfung etwas länger dauern.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <p
+              style="
+                text-align: center;
+                font-size: var(--text-sm);
+                color: var(--color-text-light);
+                margin-top: var(--space-8);
+              "
+            >
+              Mehr erfahren:
+              <a
+                href="zinssatz.html"
+                style="
+                  color: var(--color-secondary);
+                  font-weight: var(--weight-semi);
+                "
+                >Wie wird Ihr Zinssatz berechnet?</a
+              >,
+              <a
+                href="simulation.html"
+                style="
+                  color: var(--color-secondary);
+                  font-weight: var(--weight-semi);
+                "
+                >Kreditrechner nutzen</a
+              >
+              oder im
+              <a
+                href="ratgeber.html"
+                style="
+                  color: var(--color-secondary);
+                  font-weight: var(--weight-semi);
+                "
+                >Ratgeber</a
+              >
+              stöbern.
+            </p>
+          </div>
+        </div>
+      </section>
+
+
+      <section class="cta-section" aria-labelledby="cta-immo-title">
+        <div class="cta-section__inner animate-on-scroll">
+          <span class="cta-section__eyebrow">Ihr Traumhaus wartet</span>
+          <h2 class="cta-section__title" id="cta-immo-title">
+            Jetzt Immobilienfinanzierung anfragen
+          </h2>
+          <p class="cta-section__text">
+            Kostenlose und unverbindliche Erstberatung — unser Expertenteam
+            meldet sich innerhalb von 24 Stunden bei Ihnen.
+          </p>
+          <div class="cta-section__actions">
+            <a
+              href="kreditantrag.html?typ=immobilien"
+              class="btn btn-accent btn-lg"
+              >⚡ Finanzierung anfragen</a
+            >
+            <a href="kontakt.html" class="btn btn-outline-white btn-lg"
+              >📞 Kostenlos anrufen</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div id="siteFooterPlaceholder"></div>
+
+    <script src="js/template.js"></script>
+    <script src="js/loader.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/bg-effects.js" defer></script>
+    <script src="js/chat-widget.js" defer></script>
+  </body>
+</html>

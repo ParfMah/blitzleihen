@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="api-base" content="https://api.blitzleihen.com" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Kunden – Blitz Leihen Admin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../css/global.css" />
+    <link rel="stylesheet" href="../../css/components.css" />
+    <link rel="stylesheet" href="../../css/admin.css" />
+    <link rel="icon" type="image/webp" href="../blitz_leihen_logo.webp" />
+  </head>
+  <body class="admin-body">
+    <div class="admin-layout">
+
+      <aside
+        class="admin-sidebar"
+        id="adminSidebar"
+        role="navigation"
+        aria-label="Administration"
+      >
+        <div class="admin-sidebar__header">
+          <img
+            src="../blitz_leihen_logo.webp"
+            alt="Blitz Leihen"
+            class="admin-sidebar__logo"
+          />
+        </div>
+
+        <nav class="admin-nav">
+          <span class="admin-nav__section-title">Hauptmenü</span>
+          <a href="dashboard.html" class="admin-nav__link">
+            <span class="admin-nav__icon">📊</span> Dashboard
+          </a>
+          <a href="dashboard.html#demandes" class="admin-nav__link">
+            <span class="admin-nav__icon">📋</span> Alle Anträge
+          </a>
+          <a href="dashboard.html#neu" class="admin-nav__link">
+            <span class="admin-nav__icon">🆕</span> Neue Anträge
+            <span
+              id="newCount"
+              style="
+                margin-left: auto;
+                background: var(--color-accent);
+                color: white;
+                border-radius: var(--radius-full);
+                padding: 2px 8px;
+                font-size: 0.65rem;
+                font-weight: 700;
+              "
+              >0</span
+            >
+          </a>
+          <a href="chat.html" class="admin-nav__link">
+            <span class="admin-nav__icon">💬</span> Live-Chat
+            <span
+              id="chatUnreadCount"
+              style="
+                margin-left: auto;
+                background: var(--color-accent);
+                color: white;
+                border-radius: var(--radius-full);
+                padding: 2px 8px;
+                font-size: 0.65rem;
+                font-weight: 700;
+              "
+              >0</span
+            >
+          </a>
+
+          <span class="admin-nav__section-title">Verwaltung</span>
+          <a href="kunden.html" class="admin-nav__link active">
+            <span class="admin-nav__icon">👥</span> Kunden
+          </a>
+          <a href="kontakt.html" class="admin-nav__link">
+            <span class="admin-nav__icon">✉️</span> Kontakt
+            <span
+              id="kontaktCount"
+              style="
+                margin-left: auto;
+                background: var(--color-accent);
+                color: white;
+                border-radius: var(--radius-full);
+                padding: 2px 8px;
+                font-size: 0.65rem;
+                font-weight: 700;
+              "
+              >0</span
+            >
+          </a>
+          <a href="#" class="admin-nav__link" id="navEmailsSoon">
+            <span class="admin-nav__icon">📧</span> E-Mails
+          </a>
+          <a href="einstellungen.html" class="admin-nav__link">
+            <span class="admin-nav__icon">⚙️</span> Einstellungen
+          </a>
+
+          <span class="admin-nav__section-title">System</span>
+          <a href="../index.html" class="admin-nav__link" target="_blank">
+            <span class="admin-nav__icon">🌐</span> Website anzeigen
+          </a>
+          <a href="#" class="admin-nav__link" id="logoutBtn">
+            <span class="admin-nav__icon">🚪</span> Abmelden
+          </a>
+        </nav>
+
+        <div class="admin-sidebar__footer">
+          <div class="admin-user">
+            <div class="admin-user__avatar" id="userAvatar">A</div>
+            <div>
+              <div class="admin-user__name" id="userName">Administrator</div>
+              <div class="admin-user__role">Super Admin</div>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <div class="admin-sidebar-backdrop" id="sidebarBackdrop"></div>
+
+
+      <div class="admin-content">
+        <header class="admin-topbar">
+          <button
+            id="sidebarToggle"
+            style="
+              display: none;
+              background: none;
+              border: none;
+              cursor: pointer;
+              font-size: 1.3rem;
+              color: var(--color-primary);
+              margin-right: var(--space-4);
+            "
+            aria-label="Menü öffnen"
+          >
+            ☰
+          </button>
+          <h1 class="admin-topbar__title">Kunden</h1>
+          <div class="admin-topbar__actions">
+            <div class="admin-search">
+              <span class="admin-search__icon">🔍</span>
+              <input
+                type="text"
+                id="clientSearch"
+                placeholder="Name oder E-Mail suchen…"
+                aria-label="Suche"
+              />
+            </div>
+            <div
+              class="admin-user__avatar"
+              id="topbarAvatar"
+              style="cursor: pointer"
+              title="Abmelden"
+              onclick="logout()"
+            >
+              A
+            </div>
+          </div>
+        </header>
+
+        <main class="admin-main" id="adminMain">
+          <div class="admin-table-header" style="margin-bottom: var(--space-5)">
+            <div>
+              <h2
+                style="
+                  font-family: var(--font-heading);
+                  font-size: var(--text-xl);
+                  color: var(--color-primary);
+                "
+              >
+                Alle Kunden
+              </h2>
+              <p
+                style="
+                  font-size: var(--text-sm);
+                  color: var(--color-text-muted);
+                "
+                id="clientCountLabel"
+              >
+                Werden geladen…
+              </p>
+            </div>
+          </div>
+
+          <div id="clientGrid" class="client-grid">
+
+          </div>
+
+          <p
+            style="
+              font-size: var(--text-xs);
+              color: var(--color-text-muted);
+              margin-top: var(--space-6);
+              text-align: center;
+            "
+          >
+            Diese Liste wird aus den letzten Kreditanträgen zusammengestellt
+            (kein separates Kundenkonto-System).
+          </p>
+        </main>
+      </div>
+    </div>
+
+
+    <div class="admin-modal-overlay" id="clientDrawerOverlay">
+      <div class="admin-drawer">
+        <div class="admin-drawer__header">
+          <h3 class="admin-drawer__title" id="clientDrawerTitle">
+            Kundendetails
+          </h3>
+          <button class="admin-drawer__close" id="clientDrawerClose">✕</button>
+        </div>
+        <div class="admin-drawer__body" id="clientDrawerBody"></div>
+      </div>
+    </div>
+
+    <script src="../js/admin-common.js"></script>
+    <script>(function() {
+  "use strict";
+  var API_BASE = window.BlitzAdmin.API_BASE;
+  var checkAuth = window.BlitzAdmin.checkAuth;
+  var authHeaders = window.BlitzAdmin.authHeaders;
+  var logout = window.BlitzAdmin.logout;
+  var loadUserInfo = window.BlitzAdmin.loadUserInfo;
+  window.logout = logout;
+  var MAX_PAGES = 4;
+  var clients = [];
+  function loadClients() {
+    var token = checkAuth();
+    if (!token) return;
+    var grid = document.getElementById("clientGrid");
+    grid.innerHTML = '<div class="admin-empty-state"><span class="admin-empty-state__icon">\u23F3</span><div class="admin-empty-state__title">Kunden werden geladen\u2026</div></div>';
+    fetchAllPages(1, []);
+  }
+  function fetchAllPages(page, accumulated) {
+    fetch(API_BASE + "/demandes?page=" + page + "&limit=50", {
+      headers: authHeaders()
+    }).then(function(r) {
+      if (r.status === 401) {
+        logout();
+        return null;
+      }
+      return r.json();
+    }).then(function(json) {
+      if (!json || !json.success) {
+        renderClients(accumulated);
+        return;
+      }
+      var data = json.data || {};
+      var demandes = accumulated.concat(data.demandes || []);
+      var pages = (data.pagination || {}).pages || 1;
+      if (page < pages && page < MAX_PAGES) {
+        fetchAllPages(page + 1, demandes);
+      } else {
+        renderClients(demandes);
+      }
+    }).catch(function() {
+      document.getElementById("clientGrid").innerHTML = '<div class="admin-empty-state"><span class="admin-empty-state__icon">\u26A0\uFE0F</span><div class="admin-empty-state__title">Verbindung zum Server fehlgeschlagen</div></div>';
+    });
+  }
+  function renderClients(demandes) {
+    var parEmail = {};
+    demandes.forEach(function(d) {
+      var key = (d.email || "\u2014").toLowerCase();
+      if (!parEmail[key]) {
+        parEmail[key] = {
+          email: d.email || "\u2014",
+          vorname: d.vorname,
+          nachname: d.nachname,
+          telefon: d.telefon,
+          land: d.land,
+          demandes: []
+        };
+      }
+      parEmail[key].demandes.push(d);
+      if (!parEmail[key].derniereDate || new Date(d.createdAt) > new Date(parEmail[key].derniereDate)) {
+        parEmail[key].derniereDate = d.createdAt;
+        parEmail[key].vorname = d.vorname;
+        parEmail[key].nachname = d.nachname;
+        parEmail[key].telefon = d.telefon;
+      }
+    });
+    clients = Object.keys(parEmail).map(function(k) {
+      return parEmail[k];
+    });
+    clients.sort(function(a, b) {
+      return new Date(b.derniereDate) - new Date(a.derniereDate);
+    });
+    applyFilterAndRender();
+  }
+  function applyFilterAndRender() {
+    var search = (document.getElementById("clientSearch").value || "").toLowerCase();
+    var filtered = !search ? clients : clients.filter(function(c) {
+      return (c.email || "").toLowerCase().includes(search) || (c.vorname || "").toLowerCase().includes(search) || (c.nachname || "").toLowerCase().includes(search);
+    });
+    document.getElementById("clientCountLabel").textContent = filtered.length + " Kunde" + (filtered.length !== 1 ? "n" : "") + " gefunden";
+    var grid = document.getElementById("clientGrid");
+    if (!filtered.length) {
+      grid.innerHTML = '<div class="admin-empty-state"><span class="admin-empty-state__icon">\u{1F648}</span><div class="admin-empty-state__title">Keine Kunden gefunden</div></div>';
+      return;
+    }
+    grid.innerHTML = filtered.map(function(c, i) {
+      var initial = (c.vorname || c.email || "?")[0].toUpperCase();
+      var name = (c.vorname || "") + " " + (c.nachname || "");
+      var total = c.demandes.reduce(function(sum, d) {
+        return sum + (d.kreditbetrag || 0);
+      }, 0);
+      return [
+        '<div class="client-card" data-index="' + i + '">',
+        '  <div class="client-card__header">',
+        '    <div class="client-card__avatar">' + initial + "</div>",
+        '    <div style="min-width:0;">',
+        '      <div class="client-card__name">' + (name.trim() || "Unbekannt") + "</div>",
+        '      <div class="client-card__email">' + c.email + "</div>",
+        "    </div>",
+        "  </div>",
+        '  <div class="client-card__stats">',
+        "    <div><strong>" + c.demandes.length + "</strong> Antrag" + (c.demandes.length !== 1 ? "r\xE4ge" : "") + "</div>",
+        "    <div><strong>" + total.toLocaleString("de-DE") + " \u20AC</strong> gesamt</div>",
+        "  </div>",
+        "</div>"
+      ].join("");
+    }).join("");
+    Array.prototype.forEach.call(
+      grid.querySelectorAll(".client-card"),
+      function(el) {
+        el.addEventListener("click", function() {
+          openClientDrawer(
+            filtered[parseInt(el.getAttribute("data-index"))]
+          );
+        });
+      }
+    );
+  }
+  function openClientDrawer(client) {
+    var overlay = document.getElementById("clientDrawerOverlay");
+    var body = document.getElementById("clientDrawerBody");
+    var title = document.getElementById("clientDrawerTitle");
+    title.textContent = ((client.vorname || "") + " " + (client.nachname || "")).trim() || client.email;
+    overlay.classList.add("open");
+    body.innerHTML = [
+      '<div class="detail-section">',
+      '<div class="detail-section__title">Kontakt</div>',
+      '<div class="detail-grid">',
+      '  <div><div class="detail-field__label">E-Mail</div><div class="detail-field__value">' + client.email + "</div></div>",
+      '  <div><div class="detail-field__label">Telefon</div><div class="detail-field__value">' + (client.telefon || "\u2014") + "</div></div>",
+      "</div></div>",
+      '<div class="detail-section">',
+      '<div class="detail-section__title">Kreditantr\xE4ge (' + client.demandes.length + ")</div>",
+      client.demandes.map(function(d) {
+        var date = d.createdAt ? new Date(d.createdAt).toLocaleDateString("de-DE") : "\u2014";
+        var amount = d.kreditbetrag ? Number(d.kreditbetrag).toLocaleString("de-DE") + " \u20AC" : "\u2014";
+        return '<div style="display:flex; justify-content:space-between; padding:var(--space-2) 0; border-bottom:1px solid var(--color-border); font-size:var(--text-sm);"><span>' + (d.kreditart || "\u2014") + " \xB7 " + date + '</span><span style="font-weight:600; color:var(--color-primary);">' + amount + "</span></div>";
+      }).join(""),
+      "</div>"
+    ].join("");
+  }
+  function bindEvents() {
+    document.getElementById("clientSearch").addEventListener("input", applyFilterAndRender);
+    document.getElementById("clientDrawerClose").addEventListener("click", function() {
+      document.getElementById("clientDrawerOverlay").classList.remove("open");
+    });
+    document.getElementById("clientDrawerOverlay").addEventListener("click", function(e) {
+      if (e.target === this) this.classList.remove("open");
+    });
+    var logoutBtn = document.getElementById("logoutBtn");
+    if (logoutBtn)
+      logoutBtn.addEventListener("click", function(e) {
+        e.preventDefault();
+        logout();
+      });
+  }
+  function init() {
+    if (!checkAuth()) return;
+    loadUserInfo();
+    bindEvents();
+    window.BlitzAdmin.initSidebar();
+    loadClients();
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+})();
+</script>
+  </body>
+</html>

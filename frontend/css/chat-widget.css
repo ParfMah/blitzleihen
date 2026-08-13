@@ -1,0 +1,379 @@
+
+
+
+#blitzChatBubble {
+  position: fixed;
+  bottom: var(--space-6);
+  right: var(--space-6);
+  width: 60px;
+  height: 60px;
+  border-radius: var(--radius-full);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+  color: var(--color-white);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-lg);
+  z-index: 9500;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal), opacity var(--transition-normal);
+}
+
+
+#blitzChatBubble.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.8);
+}
+
+#blitzChatBubble:hover {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: var(--shadow-xl);
+}
+
+#blitzChatBubble svg {
+  width: 26px;
+  height: 26px;
+}
+
+#blitzChatBubble .blitz-chat-bubble__badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  min-width: 22px;
+  height: 22px;
+  padding: 0 5px;
+  border-radius: var(--radius-full);
+  background: var(--color-accent);
+  color: var(--color-primary);
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: var(--weight-bold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--color-white);
+}
+
+#blitzChatBubble .blitz-chat-bubble__badge:empty,
+#blitzChatBubble .blitz-chat-bubble__badge[data-count="0"] {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  #blitzChatBubble {
+    bottom: var(--space-4);
+    right: var(--space-4);
+    width: 54px;
+    height: 54px;
+  }
+}
+
+
+#blitzChatWindow {
+  position: fixed;
+  bottom: calc(var(--space-6) + 74px);
+  right: var(--space-6);
+  width: 372px;
+  max-width: calc(100vw - 2 * var(--space-4));
+  height: 560px;
+  max-height: calc(100vh - 140px);
+  background: var(--color-white);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-xl);
+  z-index: 9499;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(16px) scale(0.98);
+  pointer-events: none;
+  transition: opacity var(--transition-normal), transform var(--transition-normal);
+  font-family: var(--font-body);
+}
+
+#blitzChatWindow.open {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+@media (max-width: 640px) {
+  #blitzChatWindow {
+    bottom: 0;
+    right: 0;
+    width: 100vw;
+    max-width: 100vw;
+    height: 100vh;
+    max-height: 100vh;
+    border-radius: 0;
+  }
+}
+
+
+.blitz-chat__header {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+  color: var(--color-white);
+  padding: var(--space-4) var(--space-5);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-shrink: 0;
+}
+
+.blitz-chat__header-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-full);
+  background: rgba(255,255,255,0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.blitz-chat__header-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius-full);
+}
+
+.blitz-chat__header-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.blitz-chat__header-title {
+  font-family: var(--font-heading);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-base);
+  line-height: 1.2;
+}
+
+.blitz-chat__header-status {
+  font-size: var(--text-xs);
+  color: rgba(255,255,255,0.85);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 2px;
+}
+
+.blitz-chat__header-status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: var(--radius-full);
+  background: #3FCF7A;
+  flex-shrink: 0;
+}
+
+.blitz-chat__header-close {
+  background: none;
+  border: none;
+  color: var(--color-white);
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: var(--space-1) var(--space-2);
+  opacity: 0.85;
+  flex-shrink: 0;
+}
+
+.blitz-chat__header-close:hover { opacity: 1; }
+
+
+.blitz-chat__precha {
+  padding: var(--space-6) var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  overflow-y: auto;
+}
+
+.blitz-chat__precha p {
+  color: var(--color-text-light);
+  font-size: var(--text-sm);
+  line-height: var(--leading-normal);
+  margin: 0;
+}
+
+.blitz-chat__precha input {
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  outline: none;
+  transition: border-color var(--transition-fast);
+}
+
+.blitz-chat__precha input:focus {
+  border-color: var(--color-primary-light);
+}
+
+.blitz-chat__precha button {
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  border: none;
+  border-radius: var(--radius-md);
+  background: var(--color-accent);
+  color: var(--color-primary);
+  font-family: var(--font-body);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-sm);
+  cursor: pointer;
+  transition: background var(--transition-fast);
+}
+
+.blitz-chat__precha button:hover { background: var(--color-accent-light); }
+.blitz-chat__precha button:disabled { opacity: 0.6; cursor: default; }
+
+
+.blitz-chat__messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--space-4) var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  background: var(--color-bg);
+}
+
+.blitz-chat__msg {
+  max-width: 80%;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-lg);
+  font-size: var(--text-sm);
+  line-height: var(--leading-normal);
+  word-wrap: break-word;
+  white-space: pre-wrap;
+}
+
+.blitz-chat__msg--visiteur {
+  align-self: flex-end;
+  background: var(--color-primary);
+  color: var(--color-white);
+  border-bottom-right-radius: var(--radius-sm);
+}
+
+.blitz-chat__msg--admin {
+  align-self: flex-start;
+  background: var(--color-white);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  border-bottom-left-radius: var(--radius-sm);
+}
+
+
+.blitz-chat__msg-author {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 4px;
+  font-size: 0.72rem;
+  font-weight: var(--weight-semi);
+  color: var(--color-primary);
+}
+
+.blitz-chat__msg-author img {
+  width: 18px;
+  height: 18px;
+  border-radius: var(--radius-full);
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.blitz-chat__msg-author-fallback {
+  width: 18px;
+  height: 18px;
+  border-radius: var(--radius-full);
+  background: var(--color-primary);
+  color: var(--color-white);
+  font-size: 0.6rem;
+  font-weight: var(--weight-bold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.blitz-chat__msg--systeme {
+  align-self: center;
+  background: transparent;
+  color: var(--color-text-muted);
+  font-size: var(--text-xs);
+  text-align: center;
+  max-width: 100%;
+}
+
+.blitz-chat__msg-time {
+  display: block;
+  margin-top: 3px;
+  font-size: 0.68rem;
+  opacity: 0.65;
+}
+
+
+.blitz-chat__inputbar {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-3);
+  border-top: 1px solid var(--color-border);
+  background: var(--color-white);
+  flex-shrink: 0;
+}
+
+.blitz-chat__inputbar textarea {
+  flex: 1;
+  resize: none;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-2) var(--space-3);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  max-height: 88px;
+  outline: none;
+  transition: border-color var(--transition-fast);
+}
+
+.blitz-chat__inputbar textarea:focus {
+  border-color: var(--color-primary-light);
+}
+
+.blitz-chat__inputbar button {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  background: var(--color-primary);
+  color: var(--color-white);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background var(--transition-fast);
+}
+
+.blitz-chat__inputbar button:hover { background: var(--color-primary-light); }
+.blitz-chat__inputbar button:disabled { opacity: 0.5; cursor: default; }
+
+.blitz-chat__inputbar svg { width: 18px; height: 18px; }
+
+
+.blitz-chat__connstate {
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  text-align: center;
+  background: var(--color-bg-section);
+  flex-shrink: 0;
+}
+
+.blitz-chat__connstate[hidden] { display: none; }
