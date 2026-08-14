@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Gabarits d'emails HTML — reprend exactement la charte graphique et le design complet
  * du backend Node.js d'origine (bleu marine / or).
@@ -17,15 +18,11 @@ function e(string $s): string
 
 function email_wrapper_v2(string $title, string $subtitle, string $innerHtml): string
 {
-    $bg = BRAND_BG; 
-    $primary = BRAND_PRIMARY; 
-    $accent = BRAND_ACCENT; 
-    $text = BRAND_TEXT; 
+    $bg = BRAND_BG;
+    $primary = BRAND_PRIMARY;
+    $accent = BRAND_ACCENT;
+    $text = BRAND_TEXT;
     $muted = BRAND_MUTED;
-
-    // 🔗 URLs Cloudinary Haute Définition
-    $headerImageUrl = "https://res.cloudinary.com/duramdsjz/image/upload/f_gif,q_auto,w_1200,c_limit/v1786635754/Blitzleihen_entete.webp"; 
-    $footerImageUrl = "https://res.cloudinary.com/duramdsjz/image/upload/f_auto,q_auto,w_1200,c_limit/v1786635754/Blitzleihen_pied_de_page.webp"; 
 
     return <<<HTML
 <!DOCTYPE html>
@@ -34,54 +31,111 @@ function email_wrapper_v2(string $title, string $subtitle, string $innerHtml): s
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        /* Animation de transition douce entre Marron doux, Jaune et Orange */
+        /* Animation fluide de fond */
         @keyframes smoothColorShift {
-            0%   { background-color: #F5EBE6; } /* Marron / Cappuccino très doux */
-            33%  { background-color: #FEF9E7; } /* Jaune chaud dore */
-            66%  { background-color: #FDF2E9; } /* Orange / Pêche doux */
+            0%   { background-color: #F5EBE6; }
+            33%  { background-color: #FEF9E7; }
+            66%  { background-color: #FDF2E9; }
             100% { background-color: #F5EBE6; }
         }
         .animated-bg {
-            background-color: #F5EBE6; /* Fallback fixe pour Gmail et Outlook */
+            background-color: #F5EBE6;
             animation: smoothColorShift 9s infinite ease-in-out;
         }
     </style>
 </head>
 <body style="margin:0;padding:0;background-color:{$bg};font-family:Arial,Helvetica,sans-serif;color:{$text};">
   
-  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:{$bg};padding:20px 0;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:{$bg};padding:40px 0;">
     <tr><td align="center">
       
-      <!-- CONTENEUR PRINCIPAL AVEC BORDURE ENCADRÉE DORÉE -->
-      <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:12px;overflow:hidden;box-shadow:0 4px 15px rgba(0,0,0,0.1);width:100%;max-width:600px;border:3px solid {$accent};border-collapse:separate;">
+      <!-- CONTENEUR PRINCIPAL SANS BORDURES AVEC OMBRAGE -->
+      <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:14px;overflow:hidden;box-shadow:0 12px 32px rgba(0,0,0,0.18), 0 2px 6px rgba(0,0,0,0.08);width:100%;max-width:600px;border:none;border-collapse:separate;">
         
-        <!-- HEADER PLEINE LARGEUR -->
+        <!-- HEADER HTML/CSS -->
         <tr>
-          <td align="center" width="100%" style="background:{$primary};padding:0;margin:0;line-height:0;font-size:0;">
-            <img src="{$headerImageUrl}" alt="Blitz Leihen" width="100%" style="display:block; width:100% !important; min-width:100%; max-width:100%; height:auto; border:0; outline:none;">
+          <td align="center" style="background:{$primary};padding:28px 20px;border-bottom:3px solid {$accent}; text-align:center;">
+            <a href="https://www.blitzleihen.com" style="text-decoration:none;">
+              <h1 style="margin:0;padding:0;color:#ffffff;font-size:26px;font-weight:bold;letter-spacing:1.5px;text-transform:uppercase;">
+                ⚡ BLITZ LEIHEN
+              </h1>
+            </a>
+            <p style="margin:6px 0 0 0;color:{$accent};font-size:13px;font-weight:normal;letter-spacing:0.8px;">
+              Schnell &middot; Zuverlässig &middot; Transparent
+            </p>
           </td>
         </tr>
 
-        <!-- CONTENU EN PLEINE LARGEUR AVEC FOND ANIMÉ ET BORDS ALIGNÉS -->
+        <!-- CONTENU DU MAIL -->
         <tr>
           <td class="animated-bg" width="100%" style="padding:32px 24px;background-color:#F5EBE6;box-sizing:border-box;">
             {$innerHtml}
+
+            <!-- ENCARRÉ SPÉCIAL : CHAT EN DIRECT EN CAS D'URGENCE -->
+             
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:28px;background:#ffffff;border-left:4px solid #D4AF37;border-radius:8px;padding:18px;box-shadow:0 2px 8px rgba(0,0,0,0.05);">
+  <tr>
+    <td>
+      <p style="margin:0 0 6px 0;color:#0A192F;font-weight:bold;font-size:14px;">
+        💬 Haben Sie ein dringendes Anliegen?
+      </p>
+      <p style="margin:0 0 12px 0;color:#555555;font-size:12px;line-height:1.5;">
+        Falls Ihr Anliegen eilbedürftig ist und Sie nicht bis zu 24 Stunden auf die Bearbeitung Ihres Dossiers warten können, können Sie sofort mit einem Berater chatten.
+      </p>
+      <a href="https://www.blitzleihen.com/?chat=open" style="display:inline-block;background:#0A192F;color:#ffffff;text-decoration:none;font-size:12px;font-weight:bold;padding:10px 18px;border-radius:6px;">
+        ⚡ Live-Chat jetzt starten
+      </a>
+    </td>
+  </tr>
+</table>
+
           </td>
         </tr>
 
-        <!-- FOOTER PLEINE LARGEUR -->
+        <!-- LIENS RAPIDES : SITE, KONTAKT, KREDITANTRAG -->
         <tr>
-          <td align="center" width="100%" style="background:{$primary};padding:0;margin:0;line-height:0;font-size:0;">
-            <img src="{$footerImageUrl}" alt="Blitz Leihen Footer" width="100%" style="display:block; width:100% !important; min-width:100%; max-width:100%; height:auto; border:0; outline:none;">
+          <td align="center" style="background:#f0f4f8;padding:16px 20px;border-top:1px solid #e1e8ed;text-align:center;">
+            <table role="presentation" cellpadding="0" cellspacing="0" style="margin:0 auto;">
+              <tr>
+                <td style="padding:0 10px;">
+                  <a href="https://www.blitzleihen.com" style="color:{$primary};text-decoration:none;font-size:12px;font-weight:bold;">
+                    🌐 Unsere Website
+                  </a>
+                </td>
+                <td style="color:#a0aec0;font-size:12px;">&bull;</td>
+                <td style="padding:0 10px;">
+                  <a href="https://www.blitzleihen.com/kontakt.html" style="color:{$primary};text-decoration:none;font-size:12px;font-weight:bold;">
+                    ✉️ Kontakt & Support
+                  </a>
+                </td>
+                <td style="color:#a0aec0;font-size:12px;">&bull;</td>
+                <td style="padding:0 10px;">
+                  <a href="https://www.blitzleihen.com/kreditantrag.html" style="color:{$primary};text-decoration:none;font-size:12px;font-weight:bold;">
+                    📝 Kreditantrag
+                  </a>
+                </td>
+              </tr>
+            </table>
           </td>
         </tr>
 
-        <!-- MENTIONS LÉGALES -->
+        <!-- FOOTER GENERAL -->
         <tr>
-          <td align="center" style="background:{$primary};padding:20px;font-size:11px;color:#ffffff;line-height:1.6;">
-            <strong>Blitz Leihen GmbH</strong> &middot; Kaiserhofstr. 13 &middot; 60313 Frankfurt am Main<br>
-            📞 +49 (0) 69 1200 656 0 &middot; ✉ <a href="mailto:info@blitzleihen.com" style="color:{$accent};text-decoration:none;">info@blitzleihen.com</a><br><br>
-            <span style="color:#88a0c0;">Diese E-Mail wurde automatisch generiert. Bitte antworten Sie nicht direkt auf diese Nachricht.</span>
+          <td align="center" style="background:{$primary};padding:20px;text-align:center;">
+            <p style="margin:0 0 8px 0;color:#ffffff;font-size:13px;font-weight:bold;">
+              Blitz Leihen GmbH
+            </p>
+            <p style="margin:0;color:#88a0c0;font-size:11px;line-height:1.6;">
+              Kaiserhofstr. 13 &middot; 60313 Frankfurt am Main<br>
+              📞 +49 (0) 69 1200 656 0 &middot; ✉ <a href="mailto:kontakt@blitzleihen.com" style="color:{$accent};text-decoration:none;">kontakt@blitzleihen.com</a>
+            </p>
+          </td>
+        </tr>
+
+        <!-- MENTIONS LEGALES -->
+        <tr>
+          <td align="center" style="background:#0a1828;padding:12px 20px;font-size:10px;color:#607898;line-height:1.4;text-align:center;">
+            Diese E-Mail wurde automatisch generiert. Bitte antworten Sie nicht direkt auf diese Nachricht.
           </td>
         </tr>
 
@@ -110,11 +164,11 @@ function email_confirmation_client(array $d): array
     $vorname = $d['vorname'] ?? '';
     $nachname = $d['nachname'] ?? '';
     $fullName = trim("{$vorname} {$nachname}");
-    
+
     $dob = !empty($d['geburtsdatum']) ? date('d.m.Y', strtotime($d['geburtsdatum'])) : '—';
     $adresse = trim(($d['adresse'] ?? '') . ' ' . ($d['ort'] ?? ''));
     $land = !empty($d['land']) ? ucfirst($d['land']) : 'Deutschland';
-    
+
     $einkommen = isset($d['einkommen']) ? format_euro($d['einkommen']) . ' / Monat' : '—';
     $betrag = isset($d['kreditbetrag']) ? format_euro($d['kreditbetrag']) : '—';
     $laufzeit = isset($d['laufzeit']) ? $d['laufzeit'] . ' Monate' : '—';

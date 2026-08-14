@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Configuration principale — Blitz Leihen (backend PHP)
  * Ne contient aucun secret : tout vient de secrets.php (jamais commité,

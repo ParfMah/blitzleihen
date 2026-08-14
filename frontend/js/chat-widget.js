@@ -1,4 +1,4 @@
-(function() {
+(function () {
   "use strict";
   var STORAGE_VISITEUR_ID = "blitz_chat_visiteur_id";
   var STORAGE_NOM = "blitz_chat_nom";
@@ -24,7 +24,7 @@
     if (window.crypto && typeof window.crypto.randomUUID === "function") {
       id = window.crypto.randomUUID();
     } else {
-      id = "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function(c) {
+      id = "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function (c) {
         var r = Math.random() * 16 | 0;
         var v = c === "x" ? r : r & 3 | 8;
         return v.toString(16);
@@ -43,16 +43,16 @@
     }
     function requeteAvecDelai(url, ms) {
       var controller = new AbortController();
-      var timer = setTimeout(function() {
+      var timer = setTimeout(function () {
         controller.abort();
       }, ms);
-      return fetch(url, { signal: controller.signal }).finally(function() {
+      return fetch(url, { signal: controller.signal }).finally(function () {
         clearTimeout(timer);
       });
     }
-    return requeteAvecDelai("https://ipapi.co/json/", 4e3).then(function(r) {
+    return requeteAvecDelai("https://ipapi.co/json/", 4e3).then(function (r) {
       return r.json();
-    }).then(function(d) {
+    }).then(function (d) {
       var loc = {
         city: d.city || "",
         region: d.region || "",
@@ -62,10 +62,10 @@
       };
       sessionStorage.setItem("blitz_visitor_location", JSON.stringify(loc));
       return loc;
-    }).catch(function() {
-      return requeteAvecDelai("https://ipwho.is/", 4e3).then(function(r) {
+    }).catch(function () {
+      return requeteAvecDelai("https://ipwho.is/", 4e3).then(function (r) {
         return r.json();
-      }).then(function(d) {
+      }).then(function (d) {
         var loc = {
           city: d.city || "",
           region: d.region || "",
@@ -75,7 +75,7 @@
         };
         sessionStorage.setItem("blitz_visitor_location", JSON.stringify(loc));
         return loc;
-      }).catch(function() {
+      }).catch(function () {
         return { city: "", region: "", country: "", ip: "", display: "" };
       });
     });
@@ -133,7 +133,7 @@
         demarrerConversation();
       } else if (!nomConnu) {
         var input = document.getElementById("blitzChatNomInput");
-        if (input) setTimeout(function() {
+        if (input) setTimeout(function () {
           input.focus();
         }, 150);
       }
@@ -157,7 +157,7 @@
   }
   function demarrerConversation() {
     afficherEtatConnexion("Verbindung wird hergestellt\u2026");
-    obtenirLocalisation().then(function(loc) {
+    obtenirLocalisation().then(function (loc) {
       fetch(getApiBase() + "/api/chat/conversations", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -170,9 +170,9 @@
           visiteurPays: loc.country,
           visiteurLocalisationAffichage: loc.display
         })
-      }).then(function(r) {
+      }).then(function (r) {
         return r.json();
-      }).then(function(json) {
+      }).then(function (json) {
         if (!json || !json.success) throw new Error("Antwort ung\xFCltig");
         state.conversationId = json.data.conversation._id;
         state.messagesCharges = true;
@@ -183,7 +183,7 @@
           mettreAJourConseiller(json.data.conversation.adminAssigne);
         }
         demarrerPolling();
-      }).catch(function() {
+      }).catch(function () {
         afficherEtatConnexion("Chat momentan nicht erreichbar. Bitte versuchen Sie es sp\xE4ter erneut.");
       });
     });
@@ -211,7 +211,7 @@
     if (state.pollTimer) return;
     var echecsConsecutifs = 0;
     var cyclesASauter = 0;
-    state.pollTimer = setInterval(function() {
+    state.pollTimer = setInterval(function () {
       if (!state.visiteurId) return;
       // Ralentit automatiquement si le serveur ne répond plus, pour ne pas
       // le surcharger davantage (et reprend normalement dès que ça remarche).
@@ -219,17 +219,17 @@
         cyclesASauter -= 1;
         return;
       }
-      fetch(getApiBase() + "/api/chat/conversations/" + state.visiteurId).then(function(r) {
+      fetch(getApiBase() + "/api/chat/conversations/" + state.visiteurId).then(function (r) {
         if (!r.ok) throw new Error("http_" + r.status);
         return r.json();
-      }).then(function(json) {
+      }).then(function (json) {
         echecsConsecutifs = 0;
         if (!json || !json.success) return;
         if (json.data.conversation && json.data.conversation.adminAssigne) {
           mettreAJourConseiller(json.data.conversation.adminAssigne);
         }
         renderHistorique(json.data.messages || [], true);
-      }).catch(function() {
+      }).catch(function () {
         echecsConsecutifs = Math.min(echecsConsecutifs + 1, 6);
         cyclesASauter = echecsConsecutifs;
       });
@@ -245,7 +245,7 @@
     var container = document.getElementById("blitzChatMessages");
     if (!container) return;
     if (remplacementSeuleNouveautes) {
-      messages.forEach(function(m) {
+      messages.forEach(function (m) {
         if (document.getElementById("blitz-msg-" + m._id)) return;
         afficherMessage(m);
         if (m.expediteur === "admin" && !state.fenetreOuverte) {
@@ -256,7 +256,7 @@
       return;
     }
     container.innerHTML = "";
-    messages.forEach(function(m) {
+    messages.forEach(function (m) {
       afficherMessage(m);
     });
     scrollVersLeBas();
@@ -330,15 +330,15 @@
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ texte })
-    }).then(function(r) {
+    }).then(function (r) {
       return r.json();
-    }).then(function(json) {
+    }).then(function (json) {
       if (json && json.success && json.data && json.data.message) {
         afficherMessage(json.data.message);
       }
-    }).catch(function() {
+    }).catch(function () {
       afficherMessageSysteme("Nachricht konnte nicht gesendet werden. Bitte versuchen Sie es erneut.");
-    }).finally(function() {
+    }).finally(function () {
       state.envoiEnCours = false;
     });
   }
@@ -366,7 +366,7 @@
       demarrerConversation();
     }
     if (start) start.addEventListener("click", validerPrecha);
-    if (nomInp) nomInp.addEventListener("keydown", function(e) {
+    if (nomInp) nomInp.addEventListener("keydown", function (e) {
       if (e.key === "Enter") {
         e.preventDefault();
         validerPrecha();
@@ -374,10 +374,10 @@
     });
     if (send) send.addEventListener("click", envoyerMessage);
     if (input) {
-      input.addEventListener("input", function() {
+      input.addEventListener("input", function () {
         ajusterHauteurTextarea(input);
       });
-      input.addEventListener("keydown", function(e) {
+      input.addEventListener("keydown", function (e) {
         if (e.key === "Enter" && !e.shiftKey) {
           e.preventDefault();
           envoyerMessage();
@@ -388,14 +388,14 @@
   function init() {
     if (window.location.pathname.indexOf("/admin/") !== -1) return;
     state.visiteurId = obtenirVisiteurId();
-    fetch(getApiBase() + "/api/settings/public").then(function(r) {
+    fetch(getApiBase() + "/api/settings/public").then(function (r) {
       return r.ok ? r.json() : null;
-    }).then(function(json) {
+    }).then(function (json) {
       var chatActif = !json || json.success === false ? true : json.data.chatActif !== false;
       if (!chatActif) return;
       construireWidget();
       bindEvents();
-    }).catch(function() {
+    }).catch(function () {
       construireWidget();
       bindEvents();
     });
@@ -406,3 +406,14 @@
     init();
   }
 })();
+
+// Ouvre automatiquement la bulle de chat si l'URL contient ?chat=open
+document.addEventListener('DOMContentLoaded', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('chat') === 'open') {
+        const chatBtn = document.querySelector('#chat-widget-toggle') || document.querySelector('.chat-toggle') || document.querySelector('#chat-button');
+        if (chatBtn) {
+            chatBtn.click();
+        }
+    }
+});
